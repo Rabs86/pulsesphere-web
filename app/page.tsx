@@ -78,10 +78,14 @@ function Hero() {
           <span className="text-accent text-sm font-medium">Available on iOS &amp; Android</span>
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-black text-white leading-[1.05] mb-6 max-w-3xl">
+        <h1 className="text-5xl md:text-7xl font-black text-white leading-[1.05] mb-4 max-w-3xl">
           The Pulse of{' '}
           <span className="text-accent">Public Opinion</span>
         </h1>
+
+        <p className="text-2xl md:text-3xl font-light text-white/60 mb-8 tracking-tight">
+          Where opinions become identity.
+        </p>
 
         <p className="text-xl text-dim leading-relaxed mb-10 max-w-2xl">
           PulseSphere LLC is building the platform where ideas become data and voices become
