@@ -1,14 +1,19 @@
 // ── PulseSphere LLC Company Website ──
+import Image from 'next/image'
 
 function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-line bg-bg/90 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center">
-            <span className="text-white font-black text-sm">P</span>
-          </div>
-          <span className="text-white font-bold text-lg tracking-tight">PulseSphere</span>
+        <div className="flex items-center">
+          <Image
+            src="/pulsesphere-logo.png"
+            alt="PulseSphere LLC"
+            width={140}
+            height={56}
+            style={{ objectFit: 'contain', objectPosition: 'left center' }}
+            priority
+          />
         </div>
         <div className="hidden md:flex items-center gap-8">
           {['Product', 'Mission', 'Team', 'Company', 'Contact'].map((item) => (
@@ -212,8 +217,8 @@ function Team() {
 
         <div className="flex justify-center">
           <div className="bg-surface border border-line rounded-2xl p-10 max-w-md w-full text-center">
-            <div className="w-20 h-20 rounded-full bg-accent/15 border-2 border-accent/30 flex items-center justify-center mx-auto mb-5">
-              <span className="text-accent font-black text-3xl">P</span>
+            <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-accent/30 mx-auto mb-5">
+              <Image src="/favicon-source.png" alt="PulseSphere" width={80} height={80} style={{ objectFit: 'cover' }} />
             </div>
             <h3 className="text-white font-bold text-2xl mb-1">[Your Name]</h3>
             <div className="text-accent text-sm font-semibold mb-5">Founder &amp; CEO, PulseSphere LLC</div>
@@ -328,10 +333,14 @@ function Footer() {
   return (
     <footer className="border-t border-line py-10">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center">
-            <span className="text-white font-black text-xs">P</span>
-          </div>
+        <div className="flex items-center gap-3">
+          <Image
+            src="/pulsesphere-logo.png"
+            alt="PulseSphere LLC"
+            width={100}
+            height={40}
+            style={{ objectFit: 'contain', opacity: 0.6 }}
+          />
           <span className="text-dim text-sm">© 2026 PulseSphere LLC. All rights reserved.</span>
         </div>
         <div className="flex gap-6 text-dim text-sm">
