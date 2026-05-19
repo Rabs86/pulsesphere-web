@@ -430,17 +430,6 @@ function Team() {
 }
 
 function Company() {
-  const details = [
-    { label: 'Legal Name', value: 'PulseSphere LLC' },
-    { label: 'Entity Type', value: 'Limited Liability Company (LLC)' },
-    { label: 'State of Incorporation', value: 'Washington, USA' },
-    { label: 'Headquarters', value: 'Everett, Washington, USA' },
-    { label: 'Year Founded', value: '2026' },
-    { label: 'Industry', value: 'Social Media / Mobile Technology' },
-    { label: 'Platforms', value: 'iOS, Android, Web' },
-    { label: 'Distribution', value: 'Apple App Store & Google Play' },
-  ]
-
   return (
     <section
       id="company"
@@ -449,28 +438,43 @@ function Company() {
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Company Details</div>
-          <h2 className="text-4xl font-black text-white mb-4">About PulseSphere LLC</h2>
-          <p className="text-dim text-lg max-w-2xl mx-auto">
-            An independent technology company building social polling infrastructure for the
-            mobile era.
+          <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">The Company</div>
+          <h2 className="text-4xl font-black text-white mb-4">Built to Give Public Opinion a Home</h2>
+        </div>
+
+        <div className="max-w-3xl mx-auto space-y-6 text-dim text-lg leading-relaxed mb-16">
+          <p>
+            Public opinion has always existed — but it has never had the right infrastructure.
+            It gets scattered across comment threads, buried in feeds, and hijacked by whoever
+            shouts loudest. PulseSphere LLC was founded in 2026 to change that.
+          </p>
+          <p>
+            We built Pulse because we believe that when you give people a structured way to
+            express an opinion — a real question, a real vote, a transparent result — something
+            important happens. The noise clears. Genuine sentiment surfaces. You stop guessing
+            what people think and start knowing.
+          </p>
+          <p>
+            We're an independent company headquartered in Everett, Washington. No venture
+            pressure, no advertising business model — just a product that earns its place on
+            your phone by being genuinely useful. Pulse is free, mobile-first, and built to
+            scale to every community and conversation on the planet.
           </p>
         </div>
 
-        <div className="max-w-2xl mx-auto">
-          <div className="border border-line rounded-2xl overflow-hidden" style={{ backgroundColor: '#0a1428' }}>
-            {details.map((d, i) => (
-              <div
-                key={d.label}
-                className={`flex justify-between items-center px-6 py-4 ${
-                  i < details.length - 1 ? 'border-b border-line' : ''
-                }`}
-              >
-                <span className="text-dim text-sm">{d.label}</span>
-                <span className="text-white text-sm font-semibold text-right">{d.value}</span>
-              </div>
-            ))}
-          </div>
+        {/* Compact fact strip */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+          {[
+            { label: 'Founded', value: '2026' },
+            { label: 'Headquarters', value: 'Everett, WA' },
+            { label: 'Platforms', value: 'iOS · Android · Web' },
+            { label: 'Business model', value: 'Free to use' },
+          ].map((f) => (
+            <div key={f.label} className="border border-line rounded-xl px-5 py-4 text-center" style={{ backgroundColor: '#0a1428' }}>
+              <div className="text-white font-bold text-sm mb-1">{f.value}</div>
+              <div className="text-dim text-xs">{f.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
