@@ -266,16 +266,16 @@ function Team() {
             className="border border-line rounded-2xl p-10 max-w-md w-full text-center"
             style={{ backgroundColor: '#081022' }}
           >
-            <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-accent/30 mx-auto mb-5">
+            <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-accent/30 mx-auto mb-5">
               <Image
-                src="/favicon-source.png"
-                alt="PulseSphere"
-                width={80}
-                height={80}
-                style={{ objectFit: 'cover' }}
+                src="/silas-jomo.jpg"
+                alt="Silas Jomo"
+                width={96}
+                height={96}
+                style={{ objectFit: 'cover', objectPosition: 'center top' }}
               />
             </div>
-            <h3 className="text-white font-bold text-2xl mb-1">[Your Name]</h3>
+            <h3 className="text-white font-bold text-2xl mb-1">Silas Jomo</h3>
             <div className="text-accent text-sm font-semibold mb-5">Founder &amp; CEO, PulseSphere LLC</div>
             <p className="text-dim text-sm leading-relaxed">
               [Add a 2–3 sentence bio about your background, what motivated you to build Pulse,
