@@ -270,13 +270,13 @@ function Team() {
             className="border border-line rounded-2xl p-10 max-w-md w-full text-center"
             style={{ backgroundColor: '#081022' }}
           >
-            <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-accent/30 mx-auto mb-5">
+            <div className="w-40 h-48 rounded-xl overflow-hidden border-2 border-accent/30 mx-auto mb-5">
               <Image
                 src="/silas-jomo.jpg"
                 alt="Silas Jomo"
-                width={96}
-                height={96}
-                style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                width={160}
+                height={192}
+                style={{ objectFit: 'cover', objectPosition: 'center top', width: '100%', height: '100%' }}
               />
             </div>
             <h3 className="text-white font-bold text-2xl mb-1">Silas Jomo</h3>
