@@ -1,9 +1,27 @@
 // ── PulseSphere LLC Company Website ──
 import Image from 'next/image'
 
+function GlowDivider() {
+  return (
+    <div className="relative w-full h-px">
+      <div className="absolute inset-0 bg-line" />
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-72"
+        style={{
+          background:
+            'linear-gradient(90deg, transparent, rgba(74,158,255,0.45) 50%, transparent)',
+        }}
+      />
+    </div>
+  )
+}
+
 function Nav() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-line bg-bg/90 backdrop-blur-md">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 border-b border-line backdrop-blur-md"
+      style={{ backgroundColor: 'rgba(5,8,22,0.92)' }}
+    >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <div className="flex items-center">
           <Image
@@ -41,12 +59,18 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-accent/8 blur-[140px] rounded-full" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[300px] bg-accent/5 blur-[100px] rounded-full" />
-      </div>
+    <section
+      className="relative min-h-screen flex items-center pt-16 overflow-hidden"
+      style={{ backgroundColor: '#050816' }}
+    >
+      {/* Atmospheric bloom — centred left of headline, not a divider, just ambient light */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse 80% 70% at 28% 52%, rgba(74,158,255,0.06) 0%, transparent 100%)',
+        }}
+      />
 
       <div className="relative max-w-6xl mx-auto px-6 py-32">
         <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-8">
@@ -91,7 +115,7 @@ function Stats() {
     { label: 'Status', value: 'Live & Growing' },
   ]
   return (
-    <section className="border-y border-line bg-surface/40">
+    <section style={{ backgroundColor: '#081022' }}>
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {items.map((s) => (
@@ -141,8 +165,21 @@ function Product() {
   ]
 
   return (
-    <section id="product" className="py-28">
-      <div className="max-w-6xl mx-auto px-6">
+    <section
+      id="product"
+      className="py-28 relative"
+      style={{ backgroundColor: '#050816' }}
+    >
+      {/* Subtle dot-grid texture — classic premium dark-site technique */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle, #1e2d4a 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }}
+      />
+
+      <div className="relative max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">The Product</div>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4">What Pulse Does</h2>
@@ -156,7 +193,8 @@ function Product() {
           {features.map((f) => (
             <div
               key={f.title}
-              className="bg-surface border border-line rounded-2xl p-6 hover:border-accent/30 transition-all hover:-translate-y-0.5"
+              className="border border-line rounded-2xl p-6 hover:border-accent/30 transition-all hover:-translate-y-0.5"
+              style={{ backgroundColor: '#081022' }}
             >
               <div className="text-3xl mb-4">{f.icon}</div>
               <h3 className="text-white font-bold text-lg mb-2">{f.title}</h3>
@@ -171,7 +209,11 @@ function Product() {
 
 function Mission() {
   return (
-    <section id="mission" className="py-28 bg-surface/20 border-y border-line">
+    <section
+      id="mission"
+      className="py-28"
+      style={{ backgroundColor: '#081022' }}
+    >
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
@@ -207,7 +249,11 @@ function Mission() {
 
 function Team() {
   return (
-    <section id="team" className="py-28">
+    <section
+      id="team"
+      className="py-28"
+      style={{ backgroundColor: '#050816' }}
+    >
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">The Team</div>
@@ -216,9 +262,18 @@ function Team() {
         </div>
 
         <div className="flex justify-center">
-          <div className="bg-surface border border-line rounded-2xl p-10 max-w-md w-full text-center">
+          <div
+            className="border border-line rounded-2xl p-10 max-w-md w-full text-center"
+            style={{ backgroundColor: '#081022' }}
+          >
             <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-accent/30 mx-auto mb-5">
-              <Image src="/favicon-source.png" alt="PulseSphere" width={80} height={80} style={{ objectFit: 'cover' }} />
+              <Image
+                src="/favicon-source.png"
+                alt="PulseSphere"
+                width={80}
+                height={80}
+                style={{ objectFit: 'cover' }}
+              />
             </div>
             <h3 className="text-white font-bold text-2xl mb-1">[Your Name]</h3>
             <div className="text-accent text-sm font-semibold mb-5">Founder &amp; CEO, PulseSphere LLC</div>
@@ -249,7 +304,11 @@ function Company() {
   ]
 
   return (
-    <section id="company" className="py-28 bg-surface/20 border-y border-line">
+    <section
+      id="company"
+      className="py-28"
+      style={{ backgroundColor: '#081022' }}
+    >
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Company Details</div>
@@ -261,7 +320,7 @@ function Company() {
         </div>
 
         <div className="max-w-2xl mx-auto">
-          <div className="bg-surface border border-line rounded-2xl overflow-hidden">
+          <div className="border border-line rounded-2xl overflow-hidden" style={{ backgroundColor: '#0a1428' }}>
             {details.map((d, i) => (
               <div
                 key={d.label}
@@ -282,7 +341,11 @@ function Company() {
 
 function Contact() {
   return (
-    <section id="contact" className="py-28">
+    <section
+      id="contact"
+      className="py-28"
+      style={{ backgroundColor: '#050816' }}
+    >
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Contact</div>
@@ -296,7 +359,8 @@ function Contact() {
         <div className="grid md:grid-cols-2 gap-5 max-w-2xl mx-auto mb-10">
           <a
             href="mailto:support@pulsesphere.app"
-            className="bg-surface border border-line rounded-2xl p-7 hover:border-accent/40 transition-all hover:-translate-y-0.5 group"
+            className="border border-line rounded-2xl p-7 hover:border-accent/40 transition-all hover:-translate-y-0.5 group"
+            style={{ backgroundColor: '#081022' }}
           >
             <div className="text-3xl mb-4">💬</div>
             <div className="text-white font-bold text-lg mb-1">General Inquiries</div>
@@ -308,7 +372,8 @@ function Contact() {
 
           <a
             href="mailto:legal@pulsesphere.app"
-            className="bg-surface border border-line rounded-2xl p-7 hover:border-accent/40 transition-all hover:-translate-y-0.5 group"
+            className="border border-line rounded-2xl p-7 hover:border-accent/40 transition-all hover:-translate-y-0.5 group"
+            style={{ backgroundColor: '#081022' }}
           >
             <div className="text-3xl mb-4">⚖️</div>
             <div className="text-white font-bold text-lg mb-1">Legal &amp; Partnerships</div>
@@ -320,9 +385,7 @@ function Contact() {
         </div>
 
         <div className="text-center">
-          <p className="text-dim text-sm">
-            PulseSphere LLC · Everett, Washington, USA
-          </p>
+          <p className="text-dim text-sm">PulseSphere LLC · Everett, Washington, USA</p>
         </div>
       </div>
     </section>
@@ -331,7 +394,7 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="border-t border-line py-10">
+    <footer className="border-t border-line py-10" style={{ backgroundColor: '#081022' }}>
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex items-center gap-3">
           <Image
@@ -344,22 +407,13 @@ function Footer() {
           <span className="text-dim text-sm">© 2026 PulseSphere LLC. All rights reserved.</span>
         </div>
         <div className="flex gap-6 text-dim text-sm">
-          <a
-            href="https://pulsesphere.app/terms"
-            className="hover:text-white transition-colors"
-          >
+          <a href="https://pulsesphere.app/terms" className="hover:text-white transition-colors">
             Terms of Service
           </a>
-          <a
-            href="https://pulsesphere.app/privacy"
-            className="hover:text-white transition-colors"
-          >
+          <a href="https://pulsesphere.app/privacy" className="hover:text-white transition-colors">
             Privacy Policy
           </a>
-          <a
-            href="mailto:legal@pulsesphere.app"
-            className="hover:text-white transition-colors"
-          >
+          <a href="mailto:legal@pulsesphere.app" className="hover:text-white transition-colors">
             Legal
           </a>
         </div>
@@ -370,14 +424,20 @@ function Footer() {
 
 export default function Home() {
   return (
-    <main className="bg-bg min-h-screen">
+    <main>
       <Nav />
       <Hero />
+      <GlowDivider />
       <Stats />
+      <GlowDivider />
       <Product />
+      <GlowDivider />
       <Mission />
+      <GlowDivider />
       <Team />
+      <GlowDivider />
       <Company />
+      <GlowDivider />
       <Contact />
       <Footer />
     </main>
