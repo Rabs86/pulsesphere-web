@@ -278,8 +278,11 @@ function Team() {
             <h3 className="text-white font-bold text-2xl mb-1">Silas Jomo</h3>
             <div className="text-accent text-sm font-semibold mb-5">Founder &amp; CEO, PulseSphere LLC</div>
             <p className="text-dim text-sm leading-relaxed">
-              [Add a 2–3 sentence bio about your background, what motivated you to build Pulse,
-              and your vision for PulseSphere LLC as a company.]
+              Silas brings a rare blend of biochemistry, systems analysis, and software engineering
+              to the challenge of building social infrastructure. He founded PulseSphere on the
+              belief that public opinion can evolve into real-time identity, alignment, and social
+              intelligence — and leads the company's product vision, platform development, and
+              user experience strategy.
             </p>
             <div className="mt-6 pt-6 border-t border-line">
               <p className="text-dim text-xs">Everett, Washington, USA</p>
