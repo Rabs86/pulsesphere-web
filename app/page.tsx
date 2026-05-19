@@ -245,6 +245,84 @@ function Product() {
   )
 }
 
+function AppShowcase() {
+  const screens = [
+    {
+      src: '/screenshot-discover.png',
+      alt: 'Pulse Discover screen showing category browsing',
+      label: 'Browse by Topic',
+    },
+    {
+      src: '/screenshot-feed.png',
+      alt: 'Pulse home feed showing live polls',
+      label: 'Live Feed',
+      featured: true,
+    },
+    {
+      src: '/screenshot-vote.png',
+      alt: 'Pulse quick-vote swipe screen',
+      label: 'Quick Vote',
+    },
+  ]
+
+  return (
+    <section
+      className="py-24 overflow-hidden"
+      style={{ backgroundColor: '#050816' }}
+    >
+      {/* Ambient glow behind phones */}
+      <div
+        className="absolute left-1/2 -translate-x-1/2 w-[600px] h-[400px] pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse 80% 80% at 50% 50%, rgba(74,158,255,0.08) 0%, transparent 100%)',
+        }}
+      />
+
+      <div className="relative max-w-6xl mx-auto px-6">
+        <div className="text-center mb-14">
+          <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">The App</div>
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">See Pulse in Action</h2>
+          <p className="text-dim text-lg max-w-xl mx-auto">
+            Real questions. Real votes. Real time.
+          </p>
+        </div>
+
+        <div className="flex items-end justify-center gap-4 md:gap-6">
+          {screens.map((screen) => (
+            <div
+              key={screen.src}
+              className={`relative flex-shrink-0 transition-all ${
+                screen.featured
+                  ? 'w-[220px] md:w-[260px] z-10'
+                  : 'w-[175px] md:w-[210px] opacity-80 mb-0 md:-mb-4'
+              }`}
+            >
+              {/* Phone frame */}
+              <div
+                className="relative rounded-[2.2rem] overflow-hidden border border-white/15 shadow-2xl"
+                style={{ backgroundColor: '#050816', boxShadow: screen.featured ? '0 0 60px rgba(74,158,255,0.15)' : undefined }}
+              >
+                {/* Dynamic island */}
+                <div className="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-black rounded-full z-10" />
+                <Image
+                  src={screen.src}
+                  alt={screen.alt}
+                  width={390}
+                  height={844}
+                  className="w-full h-auto block"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <p className="text-center text-dim text-xs font-medium mt-3">{screen.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Mission() {
   return (
     <section
@@ -470,6 +548,8 @@ export default function Home() {
       <Hero />
       <GlowDivider />
       <Stats />
+      <GlowDivider />
+      <AppShowcase />
       <GlowDivider />
       <Product />
       <GlowDivider />
