@@ -415,10 +415,10 @@ function Footer() {
           <span className="text-dim text-sm">© 2026 PulseSphere LLC. All rights reserved.</span>
         </div>
         <div className="flex gap-6 text-dim text-sm">
-          <a href="https://pulsesphere.app/terms" className="hover:text-white transition-colors">
+          <a href="https://pulsesphere.app/terms" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
             Terms of Service
           </a>
-          <a href="https://pulsesphere.app/privacy" className="hover:text-white transition-colors">
+          <a href="https://pulsesphere.app/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
             Privacy Policy
           </a>
           <a href="mailto:legal@pulsesphere.app" className="hover:text-white transition-colors">
