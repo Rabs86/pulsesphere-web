@@ -1,5 +1,10 @@
+'use client'
 // ── PulseSphere LLC Company Website ──
 import Image from 'next/image'
+
+function scrollTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+}
 
 function GlowDivider() {
   return (
@@ -35,13 +40,13 @@ function Nav() {
         </div>
         <div className="hidden md:flex items-center gap-8">
           {['Product', 'Mission', 'Team', 'Company', 'Contact'].map((item) => (
-            <a
+            <button
               key={item}
-              href={`#${item.toLowerCase()}`}
+              onClick={() => scrollTo(item.toLowerCase())}
               className="text-dim hover:text-white transition-colors text-sm font-medium"
             >
               {item}
-            </a>
+            </button>
           ))}
         </div>
         <a
@@ -94,18 +99,18 @@ function Hero() {
         </p>
 
         <div className="flex flex-wrap gap-4">
-          <a
-            href="#product"
+          <button
+            onClick={() => scrollTo('product')}
             className="bg-accent text-white px-8 py-4 rounded-xl font-bold text-base hover:bg-blue-500 transition-colors"
           >
             Explore the Product
-          </a>
-          <a
-            href="#contact"
+          </button>
+          <button
+            onClick={() => scrollTo('contact')}
             className="border border-line text-white px-8 py-4 rounded-xl font-bold text-base hover:border-accent/50 transition-colors"
           >
             Get in Touch
-          </a>
+          </button>
         </div>
 
         {/* Store download buttons */}
