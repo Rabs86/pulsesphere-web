@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     'PulseSphere LLC is an independent technology company headquartered in Everett, Washington, building Pulse — a real-time social polling platform for iOS and Android.',
   keywords: ['PulseSphere', 'Pulse app', 'social polling', 'public opinion', 'mobile app', 'Washington'],
+  metadataBase: new URL('https://company.pulsesphere.app'),
   openGraph: {
     title: 'PulseSphere LLC',
     description: 'Building the infrastructure for real-time public opinion.',
