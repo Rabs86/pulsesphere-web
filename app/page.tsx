@@ -455,6 +455,12 @@ function AppShowcase() {
 }
 
 function Mission() {
+  const stats = [
+    { value: '160+', label: 'Polls created' },
+    { value: '130K+', label: 'Votes cast' },
+    { value: 'Free', label: 'Always' },
+  ]
+
   return (
     <section
       id="mission"
@@ -469,6 +475,16 @@ function Mission() {
               Public opinion deserves{' '}
               <span className="text-accent">better infrastructure</span>
             </h2>
+
+            {/* Proof strip */}
+            <div className="flex gap-6 mt-2">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <div className="text-2xl font-black text-white">{s.value}</div>
+                  <div className="text-dim text-xs mt-0.5">{s.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="space-y-5 text-dim text-base leading-relaxed">
