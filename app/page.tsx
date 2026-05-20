@@ -27,43 +27,98 @@ function GlowDivider() {
 }
 
 function Nav() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const navItems = ['Product', 'Mission', 'Team', 'Company', 'Contact']
+
+  function handleNav(id: string) {
+    setMenuOpen(false)
+    setTimeout(() => scrollTo(id), 50)
+  }
+
   return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-50 border-b border-line backdrop-blur-md"
-      style={{ backgroundColor: 'rgba(5,8,22,0.92)' }}
-    >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <div className="flex items-center">
-          <Image
-            src="/pulsesphere-logo.png"
-            alt="PulseSphere LLC"
-            width={140}
-            height={56}
-            style={{ objectFit: 'contain', objectPosition: 'left center' }}
-            priority
-          />
-        </div>
-        <div className="hidden md:flex items-center gap-8">
-          {['Product', 'Mission', 'Team', 'Company', 'Contact'].map((item) => (
-            <button
-              key={item}
-              onClick={() => scrollTo(item.toLowerCase())}
-              className="text-dim hover:text-white transition-colors text-sm font-medium"
+    <>
+      <nav
+        className="fixed top-0 left-0 right-0 z-50 border-b border-line backdrop-blur-md"
+        style={{ backgroundColor: 'rgba(5,8,22,0.92)' }}
+      >
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center">
+            <Image
+              src="/pulsesphere-logo.png"
+              alt="PulseSphere LLC"
+              width={130}
+              height={52}
+              style={{ objectFit: 'contain', objectPosition: 'left center' }}
+              priority
+            />
+          </div>
+
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollTo(item.toLowerCase())}
+                className="text-dim hover:text-white transition-colors text-sm font-medium"
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-3">
+            <a
+              href="https://pulsesphere.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-accent text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-500 transition-colors"
             >
-              {item}
+              Try Pulse →
+            </a>
+            {/* Hamburger — mobile only */}
+            <button
+              className="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+            >
+              <span className={`block w-5 h-0.5 bg-white transition-all duration-200 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+              <span className={`block w-5 h-0.5 bg-white transition-all duration-200 ${menuOpen ? 'opacity-0' : ''}`} />
+              <span className={`block w-5 h-0.5 bg-white transition-all duration-200 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
             </button>
-          ))}
+          </div>
         </div>
-        <a
-          href="https://pulsesphere.app"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-accent text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-500 transition-colors"
+      </nav>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 z-40 md:hidden"
+          style={{ backgroundColor: 'rgba(5,8,22,0.98)', paddingTop: '4rem' }}
+          onClick={() => setMenuOpen(false)}
         >
-          Try Pulse →
-        </a>
-      </div>
-    </nav>
+          <div className="flex flex-col items-center justify-center gap-8 h-full pb-20">
+            {navItems.map((item) => (
+              <button
+                key={item}
+                onClick={() => handleNav(item.toLowerCase())}
+                className="text-white text-2xl font-bold hover:text-accent transition-colors"
+              >
+                {item}
+              </button>
+            ))}
+            <a
+              href="https://pulsesphere.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 bg-accent text-white px-8 py-3 rounded-xl font-bold text-base hover:bg-blue-500 transition-colors"
+              onClick={() => setMenuOpen(false)}
+            >
+              Try Pulse →
+            </a>
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 
@@ -82,37 +137,37 @@ function Hero() {
         }}
       />
 
-      <div className="relative max-w-6xl mx-auto px-6 py-32">
-        <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-8">
+      <div className="relative max-w-6xl mx-auto px-6 py-20 md:py-32">
+        <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-6 md:mb-8">
           <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
           <span className="text-accent text-sm font-medium">Available on iOS &amp; Android</span>
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-black text-white leading-[1.05] mb-4 max-w-3xl">
+        <h1 className="text-4xl md:text-7xl font-black text-white leading-[1.05] mb-4 max-w-3xl">
           Vote on anything.{' '}
           <span className="text-accent">See what the world thinks.</span>
           {' '}Instantly.
         </h1>
 
-        <p className="text-2xl md:text-3xl font-light text-white/60 mb-8 tracking-tight">
+        <p className="text-xl md:text-3xl font-light text-white/60 mb-6 md:mb-8 tracking-tight">
           Where opinions become identity.
         </p>
 
-        <p className="text-xl text-dim leading-relaxed mb-10 max-w-2xl">
+        <p className="text-base md:text-xl text-dim leading-relaxed mb-8 md:mb-10 max-w-2xl">
           PulseSphere LLC is building the platform where ideas become data and voices become
           trends. Pulse gives everyone a real-time window into what the world is thinking.
         </p>
 
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-3 md:gap-4">
           <button
             onClick={() => scrollTo('product')}
-            className="bg-accent text-white px-8 py-4 rounded-xl font-bold text-base hover:bg-blue-500 transition-colors"
+            className="bg-accent text-white px-6 md:px-8 py-3.5 md:py-4 rounded-xl font-bold text-base hover:bg-blue-500 transition-colors"
           >
             Explore the Product
           </button>
           <button
             onClick={() => scrollTo('contact')}
-            className="border border-line text-white px-8 py-4 rounded-xl font-bold text-base hover:border-accent/50 transition-colors"
+            className="border border-line text-white px-6 md:px-8 py-3.5 md:py-4 rounded-xl font-bold text-base hover:border-accent/50 transition-colors"
           >
             Get in Touch
           </button>
@@ -180,13 +235,13 @@ function Stats() {
 
 function Product() {
   return (
-    <section id="product" className="py-28" style={{ backgroundColor: '#050816' }}>
+    <section id="product" className="py-16 md:py-28" style={{ backgroundColor: '#050816' }}>
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Header */}
         <div className="text-center mb-14">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">The Product</div>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
             What Pulse does
           </h2>
           <p className="text-dim text-lg max-w-2xl mx-auto leading-relaxed">
@@ -398,7 +453,7 @@ function AppShowcase() {
 
   return (
     <section
-      className="py-24 overflow-hidden"
+      className="py-16 md:py-24 overflow-hidden"
       style={{ backgroundColor: '#050816' }}
     >
       {/* Ambient glow behind phones */}
@@ -413,7 +468,7 @@ function AppShowcase() {
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">The App</div>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">See Pulse in Action</h2>
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">See Pulse in Action</h2>
           <p className="text-dim text-lg max-w-xl mx-auto">
             Real questions. Real votes. Real time.
           </p>
@@ -425,8 +480,8 @@ function AppShowcase() {
               key={screen.src}
               className={`relative flex-shrink-0 transition-all ${
                 screen.featured
-                  ? 'w-[220px] md:w-[260px] z-10'
-                  : 'w-[175px] md:w-[210px] opacity-80 mb-0 md:-mb-4'
+                  ? 'w-[72vw] max-w-[220px] md:w-[260px] z-10'
+                  : 'hidden sm:block w-[175px] md:w-[210px] opacity-80 md:-mb-4'
               }`}
             >
               {/* Phone frame */}
@@ -464,14 +519,14 @@ function Mission() {
   return (
     <section
       id="mission"
-      className="py-28"
+      className="py-16 md:py-28"
       style={{ backgroundColor: '#081022' }}
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-4">Our Mission</div>
-            <h2 className="text-4xl md:text-5xl font-black text-white leading-tight mb-6">
+            <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-6">
               Public opinion deserves{' '}
               <span className="text-accent">better infrastructure</span>
             </h2>
@@ -514,13 +569,13 @@ function Team() {
   return (
     <section
       id="team"
-      className="py-28"
+      className="py-16 md:py-28"
       style={{ backgroundColor: '#050816' }}
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">The Team</div>
-          <h2 className="text-4xl font-black text-white mb-4">Who Builds PulseSphere</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Who Builds PulseSphere</h2>
           <p className="text-dim text-lg">The people behind the platform</p>
         </div>
 
@@ -575,13 +630,13 @@ function Company() {
   return (
     <section
       id="company"
-      className="py-28"
+      className="py-16 md:py-28"
       style={{ backgroundColor: '#081022' }}
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">The Company</div>
-          <h2 className="text-4xl font-black text-white mb-4">Built to Give Public Opinion a Home</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Built to Give Public Opinion a Home</h2>
         </div>
 
         <div className="max-w-3xl mx-auto space-y-6 text-dim text-lg leading-relaxed mb-16">
@@ -657,11 +712,11 @@ function Contact() {
   const inputStyle = { backgroundColor: 'rgba(255,255,255,0.04)' }
 
   return (
-    <section id="contact" className="py-28" style={{ backgroundColor: '#050816' }}>
+    <section id="contact" className="py-16 md:py-28" style={{ backgroundColor: '#050816' }}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Contact</div>
-          <h2 className="text-4xl font-black text-white mb-4">Get in Touch</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Get in Touch</h2>
           <p className="text-dim text-lg max-w-xl mx-auto">
             For partnerships, press inquiries, grant opportunities, or general questions — send us a message and we'll get back to you.
           </p>
@@ -775,7 +830,7 @@ function Footer() {
   return (
     <footer className="border-t border-line" style={{ backgroundColor: '#081022' }}>
       {/* Main footer grid */}
-      <div className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div className="max-w-6xl mx-auto px-6 py-10 md:py-16 grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
 
         {/* Brand column */}
         <div className="md:col-span-1 flex flex-col gap-4">
