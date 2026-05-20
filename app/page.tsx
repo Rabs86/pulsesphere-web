@@ -1,6 +1,7 @@
 'use client'
 // ── PulseSphere LLC Company Website ──
 import Image from 'next/image'
+import { useState, FormEvent } from 'react'
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -603,52 +604,147 @@ function Company() {
 }
 
 function Contact() {
+  const [fields, setFields] = useState({ name: '', email: '', subject: '', message: '' })
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
+
+  function set(key: keyof typeof fields) {
+    return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+      setFields((prev) => ({ ...prev, [key]: e.target.value }))
+  }
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault()
+    setStatus('sending')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(fields),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.')
+      setStatus('success')
+      setFields({ name: '', email: '', subject: '', message: '' })
+    } catch (err: unknown) {
+      setErrorMsg(err instanceof Error ? err.message : 'Something went wrong.')
+      setStatus('error')
+    }
+  }
+
+  const inputCls =
+    'w-full rounded-xl border border-white/10 px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition focus:border-accent/60 focus:ring-1 focus:ring-accent/30'
+  const inputStyle = { backgroundColor: 'rgba(255,255,255,0.04)' }
+
   return (
-    <section
-      id="contact"
-      className="py-28"
-      style={{ backgroundColor: '#050816' }}
-    >
+    <section id="contact" className="py-28" style={{ backgroundColor: '#050816' }}>
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-14">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Contact</div>
           <h2 className="text-4xl font-black text-white mb-4">Get in Touch</h2>
           <p className="text-dim text-lg max-w-xl mx-auto">
-            For partnerships, press inquiries, grant opportunities, or general questions — we'd
-            love to hear from you.
+            For partnerships, press inquiries, grant opportunities, or general questions — send us a message and we'll get back to you.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5 max-w-2xl mx-auto mb-10">
-          <a
-            href="mailto:support@pulsesphere.app"
-            className="border border-line rounded-2xl p-7 hover:border-accent/40 transition-all hover:-translate-y-0.5 group"
-            style={{ backgroundColor: '#081022' }}
-          >
-            <div className="text-3xl mb-4">💬</div>
-            <div className="text-white font-bold text-lg mb-1">General Inquiries</div>
-            <div className="text-dim text-sm mb-3">Support, media, and general questions</div>
-            <div className="text-accent text-sm font-semibold group-hover:underline">
-              support@pulsesphere.app
-            </div>
-          </a>
+        <div className="max-w-2xl mx-auto">
+          <div className="rounded-2xl border border-white/10 p-8 md:p-10" style={{ backgroundColor: '#081022' }}>
 
-          <a
-            href="mailto:legal@pulsesphere.app"
-            className="border border-line rounded-2xl p-7 hover:border-accent/40 transition-all hover:-translate-y-0.5 group"
-            style={{ backgroundColor: '#081022' }}
-          >
-            <div className="text-3xl mb-4">⚖️</div>
-            <div className="text-white font-bold text-lg mb-1">Legal &amp; Partnerships</div>
-            <div className="text-dim text-sm mb-3">Contracts, grants, and formal inquiries</div>
-            <div className="text-accent text-sm font-semibold group-hover:underline">
-              legal@pulsesphere.app
-            </div>
-          </a>
-        </div>
+            {status === 'success' ? (
+              <div className="text-center py-10">
+                <div className="text-4xl mb-4">✅</div>
+                <h3 className="text-white font-bold text-xl mb-2">Message sent!</h3>
+                <p className="text-dim text-sm mb-6">We'll get back to you at {fields.email || 'your email'} within 1–2 business days.</p>
+                <button
+                  onClick={() => setStatus('idle')}
+                  className="text-accent text-sm font-semibold hover:underline"
+                >
+                  Send another message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-white/60 text-xs font-medium mb-1.5">Name</label>
+                    <input
+                      type="text"
+                      placeholder="Silas Jomo"
+                      value={fields.name}
+                      onChange={set('name')}
+                      required
+                      className={inputCls}
+                      style={inputStyle}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-white/60 text-xs font-medium mb-1.5">Email</label>
+                    <input
+                      type="email"
+                      placeholder="you@example.com"
+                      value={fields.email}
+                      onChange={set('email')}
+                      required
+                      className={inputCls}
+                      style={inputStyle}
+                    />
+                  </div>
+                </div>
 
-        <div className="text-center">
-          <p className="text-dim text-sm">PulseSphere LLC · Everett, Washington, USA</p>
+                <div>
+                  <label className="block text-white/60 text-xs font-medium mb-1.5">Subject</label>
+                  <select
+                    value={fields.subject}
+                    onChange={set('subject')}
+                    required
+                    className={inputCls}
+                    style={{ ...inputStyle, appearance: 'none' }}
+                  >
+                    <option value="" disabled>Select a subject…</option>
+                    <option value="General inquiry">General inquiry</option>
+                    <option value="Partnership / collaboration">Partnership / collaboration</option>
+                    <option value="Press / media">Press / media</option>
+                    <option value="Grant opportunity">Grant opportunity</option>
+                    <option value="Legal">Legal</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-white/60 text-xs font-medium mb-1.5">Message</label>
+                  <textarea
+                    placeholder="Tell us what's on your mind…"
+                    rows={5}
+                    value={fields.message}
+                    onChange={set('message')}
+                    required
+                    className={inputCls + ' resize-none'}
+                    style={inputStyle}
+                  />
+                </div>
+
+                {status === 'error' && (
+                  <p className="text-red-400 text-sm">{errorMsg}</p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={status === 'sending'}
+                  className="w-full bg-accent text-white font-bold py-3.5 rounded-xl text-sm hover:bg-blue-500 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {status === 'sending' ? 'Sending…' : 'Send Message'}
+                </button>
+              </form>
+            )}
+          </div>
+
+          <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4 text-dim text-sm">
+            <span>Or email us directly:</span>
+            <a href="mailto:support@pulsesphere.app" className="text-accent hover:underline">support@pulsesphere.app</a>
+            <span className="hidden sm:inline text-white/20">·</span>
+            <a href="mailto:legal@pulsesphere.app" className="text-accent hover:underline">legal@pulsesphere.app</a>
+          </div>
+          <p className="text-center text-dim text-xs mt-4">PulseSphere LLC · Everett, Washington, USA</p>
         </div>
       </div>
     </section>
