@@ -136,7 +136,7 @@ function Hero() {
       <div className="relative max-w-6xl mx-auto px-6 py-20 md:py-32">
         <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-6 md:mb-8">
           <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-          <span className="text-accent text-sm font-medium">Available on iOS &amp; Android</span>
+          <span className="text-accent text-sm font-medium">Coming to iOS &amp; Android</span>
         </div>
 
         <h1 className="text-4xl md:text-7xl font-black text-white leading-[1.05] mb-4 max-w-3xl">
