@@ -150,8 +150,7 @@ function Hero() {
         </p>
 
         <p className="text-base md:text-xl text-dim leading-relaxed mb-8 md:mb-10 max-w-2xl">
-          PulseSphere LLC is building the platform where ideas become data and voices become
-          trends. Pulse gives everyone a real-time window into what the world is thinking.
+          Ask anything. Vote on everything. See exactly where you stand — and discover what your opinions say about you.
         </p>
 
         <div className="flex flex-wrap gap-3 md:gap-4">
