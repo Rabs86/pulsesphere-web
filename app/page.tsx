@@ -905,7 +905,7 @@ function Footer() {
             style={{ objectFit: 'contain', objectPosition: 'left center' }}
           />
           <p className="text-dim text-sm leading-relaxed">
-            Building the platform where ideas become data and voices become trends. Real-time social polling for everyone.
+            The world&rsquo;s opinion in real time. Vote on anything, instantly.
           </p>
           {/* Social icons */}
           <div className="flex gap-3 mt-1">
