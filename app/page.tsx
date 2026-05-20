@@ -1,14 +1,10 @@
 'use client'
 // ── PulseSphere LLC Company Website ──
 import Image from 'next/image'
-import { useState, FormEvent } from 'react'
+import { useState, useEffect, FormEvent } from 'react'
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-}
-
-if (typeof window !== 'undefined') {
-  window.history.scrollRestoration = 'manual'
 }
 
 function GlowDivider() {
@@ -945,6 +941,11 @@ function Footer() {
 }
 
 export default function Home() {
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual'
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <main>
       <Nav />
