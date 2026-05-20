@@ -7,6 +7,10 @@ function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 }
 
+if (typeof window !== 'undefined') {
+  window.history.scrollRestoration = 'manual'
+}
+
 function GlowDivider() {
   return (
     <div className="relative w-full h-px">
