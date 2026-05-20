@@ -174,135 +174,196 @@ function Stats() {
 }
 
 function Product() {
-  const cards = [
-    {
-      stat: 'Live ranking',
-      title: 'Trending Feed',
-      desc: 'An algorithmic feed surfaces polls gaining momentum — giving users a front-row seat to emerging consensus and viral debates.',
-    },
-    {
-      stat: '9 categories',
-      title: 'Category Discovery',
-      desc: 'Browse by topic — Politics, Sports, Tech, Entertainment, Food, Health, Local, Society, and more. Every interest has a home.',
-    },
-    {
-      stat: 'City-level',
-      title: 'Location Polls',
-      desc: 'Geo-tagged questions surface hyperlocal opinions — what people in your city or region are thinking right now.',
-    },
-    {
-      stat: 'Follow · DM · Debate',
-      title: 'Social Graph',
-      desc: 'Follow opinion leaders, build your network, and engage in direct conversations with people who share your interests.',
-    },
-    {
-      stat: 'Weekly recaps',
-      title: 'Leaderboards',
-      desc: 'Weekly rankings celebrate the most engaged voices, keeping the community active and coming back.',
-    },
-  ]
-
   return (
-    <section
-      id="product"
-      className="py-28 relative"
-      style={{ backgroundColor: '#050816' }}
-    >
-      {/* Dot-grid texture */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(circle, #1e2d4a 1px, transparent 1px)',
-          backgroundSize: '24px 24px',
-        }}
-      />
+    <section id="product" className="py-28" style={{ backgroundColor: '#F0EDE8' }}>
+      <div className="max-w-6xl mx-auto px-6">
 
-      <div className="relative max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">The Product</div>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">What Pulse Does</h2>
-          <p className="text-dim text-lg max-w-2xl mx-auto leading-relaxed">
-            A full-featured social polling platform built for engagement, transparency, and
-            real-time discovery.
+        {/* Header */}
+        <div className="text-center mb-14">
+          <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#111827' }}>
+            What Pulse does
+          </h2>
+          <p className="text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+            A full-featured social polling platform built for engagement, transparency, and real-time discovery.
           </p>
         </div>
 
-        {/* ── Hero feature: Real-Time Polls ── */}
-        <div
-          className="grid md:grid-cols-2 gap-10 items-center rounded-3xl border border-line p-8 md:p-12 mb-5 overflow-hidden relative"
-          style={{ backgroundColor: '#081022' }}
-        >
-          {/* Glow */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: 'radial-gradient(ellipse 60% 80% at 80% 50%, rgba(74,158,255,0.07) 0%, transparent 100%)',
-            }}
-          />
+        {/* 3-col × 2-row feature grid */}
+        <div className="grid md:grid-cols-3 gap-4">
 
-          {/* Left: copy */}
-          <div className="relative">
-            <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-3 py-1 mb-5">
-              <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              <span className="text-accent text-xs font-semibold uppercase tracking-widest">Core feature</span>
+          {/* ── 1: Real-time polls ── */}
+          <div className="bg-white rounded-2xl border border-[#E5E3DF] flex flex-col overflow-hidden">
+            <div className="p-5 flex-1">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2 h-2 rounded-full bg-red-500" />
+                  <span className="text-red-500 text-xs font-semibold">live</span>
+                </div>
+                <span className="text-gray-400 text-xs">just now</span>
+              </div>
+              <p className="text-[#111827] font-semibold text-sm mb-4 leading-snug">
+                Is cheating ever forgivable in a relationship?
+              </p>
+              <div className="space-y-3">
+                {[
+                  { label: 'Never — dealbreaker', pct: 62, color: 'bg-blue-500', dot: 'bg-blue-500' },
+                  { label: 'Context matters',     pct: 38, color: 'bg-red-400',  dot: 'bg-red-400'  },
+                ].map((opt) => (
+                  <div key={opt.label}>
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className={`w-2 h-2 rounded-full flex-shrink-0 ${opt.dot}`} />
+                      <span className="text-[#374151] text-xs flex-1">{opt.label}</span>
+                      <span className="text-[#374151] text-xs font-bold">{opt.pct}%</span>
+                    </div>
+                    <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                      <div className={`h-full rounded-full ${opt.color}`} style={{ width: `${opt.pct}%` }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="text-5xl md:text-6xl font-black text-accent mb-3 leading-none">&lt; 500ms</div>
-            <h3 className="text-white font-black text-2xl mb-4">Real-Time Polls</h3>
-            <p className="text-dim text-base leading-relaxed mb-6">
-              Results update the instant a vote is cast — no refresh, no delay. Every participant
-              watches the numbers move live as opinions pour in.
-            </p>
-            <ul className="space-y-2">
+            <div className="px-5 pt-4 pb-5 border-t border-gray-100">
+              <h3 className="font-bold text-base mb-1.5" style={{ color: '#111827' }}>Real-time polls</h3>
+              <p className="text-sm leading-relaxed mb-3" style={{ color: '#6B7280' }}>
+                Create a question and watch responses roll in live. Every vote is counted instantly and results shift in real time as the world votes.
+              </p>
+              <span className="text-blue-600 text-sm font-medium">Results update in under 500ms</span>
+            </div>
+          </div>
+
+          {/* ── 2: Trending feed ── */}
+          <div className="bg-white rounded-2xl border border-[#E5E3DF] flex flex-col overflow-hidden">
+            <div className="p-5 flex-1 space-y-2">
               {[
-                'Vote counts update via live WebSocket connection',
-                'Results visible to all participants simultaneously',
-                'Percentages recalculate on every single vote',
-              ].map((point) => (
-                <li key={point} className="flex items-start gap-2 text-sm text-dim">
-                  <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
-                  {point}
-                </li>
+                { tag: 'trending', tagCls: 'text-orange-600 bg-orange-50', body: 'Should VAR be removed from football permanently?', meta: '14,822 votes · 2h ago' },
+                { tag: 'rising',   tagCls: 'text-teal-600 bg-teal-50',     body: 'Is pineapple on pizza actually a crime?',          meta: '8,341 votes · 4h ago'  },
+                { tag: 'viral',    tagCls: 'text-amber-600 bg-amber-50',   body: 'Should billionaires exist?',                       meta: '31,007 votes · 1h ago' },
+              ].map((item) => (
+                <div key={item.tag} className="border border-gray-100 rounded-xl p-3">
+                  <span className={`text-xs font-semibold px-2 py-0.5 rounded-full inline-block mb-1.5 ${item.tagCls}`}>{item.tag}</span>
+                  <p className="text-sm font-medium leading-snug mb-1" style={{ color: '#111827' }}>{item.body}</p>
+                  <p className="text-xs" style={{ color: '#9CA3AF' }}>{item.meta}</p>
+                </div>
               ))}
-            </ul>
-          </div>
-
-          {/* Right: phone mockup */}
-          <div className="relative flex justify-center md:justify-end">
-            <div
-              className="relative w-[200px] md:w-[230px] rounded-[2.2rem] overflow-hidden border border-white/15"
-              style={{ boxShadow: '0 0 60px rgba(74,158,255,0.18), 0 30px 60px rgba(0,0,0,0.5)' }}
-            >
-              {/* Dynamic island */}
-              <div className="absolute top-3 left-1/2 -translate-x-1/2 w-16 h-4 bg-black rounded-full z-10" />
-              {/* Fade at bottom so it bleeds nicely into the card */}
-              <div
-                className="absolute bottom-0 left-0 right-0 h-24 z-10 pointer-events-none"
-                style={{ background: 'linear-gradient(transparent, #081022)' }}
-              />
-              <Image
-                src="/screenshot-feed.png"
-                alt="Pulse live feed showing a real-time poll"
-                width={390}
-                height={844}
-                className="w-full h-auto block"
-              />
+            </div>
+            <div className="px-5 pt-4 pb-5 border-t border-gray-100">
+              <h3 className="font-bold text-base mb-1.5" style={{ color: '#111827' }}>Trending feed</h3>
+              <p className="text-sm leading-relaxed mb-3" style={{ color: '#6B7280' }}>
+                An algorithmic feed surfaces polls gaining momentum — giving you a front-row seat to emerging consensus and the debates the world cannot stop voting on.
+              </p>
+              <span className="text-blue-600 text-sm font-medium">Top trending polls updated every 60 seconds</span>
             </div>
           </div>
-        </div>
 
-        {/* ── Stat-led feature cards ── */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {cards.map((f) => (
-            <div
-              key={f.title}
-              className="border border-line rounded-2xl p-6 hover:border-accent/30 transition-all hover:-translate-y-0.5"
-              style={{ backgroundColor: '#081022' }}
-            >
-              <div className="text-xl font-black text-accent mb-1 tracking-tight">{f.stat}</div>
-              <h3 className="text-white font-bold text-lg mb-2">{f.title}</h3>
-              <p className="text-dim text-sm leading-relaxed">{f.desc}</p>
+          {/* ── 3: Category discovery ── */}
+          <div className="bg-white rounded-2xl border border-[#E5E3DF] flex flex-col overflow-hidden">
+            <div className="p-5 flex-1">
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { icon: '⚽', label: 'Sport',          count: '2.4k' },
+                  { icon: '🏛️', label: 'Politics',       count: '1.8k' },
+                  { icon: '❤️', label: 'Relationships',  count: '3.1k' },
+                  { icon: '💻', label: 'Tech',            count: '980'  },
+                  { icon: '🎬', label: 'Entertainment',  count: '1.2k' },
+                  { icon: '🍕', label: 'Food',            count: '740'  },
+                ].map((cat) => (
+                  <div key={cat.label} className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2">
+                    <span className="text-sm leading-none">{cat.icon}</span>
+                    <span className="text-xs font-medium flex-1" style={{ color: '#374151' }}>{cat.label}</span>
+                    <span className="text-xs" style={{ color: '#9CA3AF' }}>{cat.count}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
+            <div className="px-5 pt-4 pb-5 border-t border-gray-100">
+              <h3 className="font-bold text-base mb-1.5" style={{ color: '#111827' }}>Category discovery</h3>
+              <p className="text-sm leading-relaxed mb-3" style={{ color: '#6B7280' }}>
+                Browse polls by topic across 9 categories. Every interest has a home — from breaking political debates to the eternal pineapple pizza question.
+              </p>
+              <span className="text-blue-600 text-sm font-medium">9 categories · new polls added daily</span>
+            </div>
+          </div>
+
+          {/* ── 4: Social graph ── */}
+          <div className="bg-white rounded-2xl border border-[#E5E3DF] flex flex-col overflow-hidden">
+            <div className="p-5 flex-1 space-y-3">
+              {[
+                { init: 'SJ', initCls: 'bg-blue-100 text-blue-700',   name: 'Silas J.',  meta: '847 followers · 92% agree with you', following: true  },
+                { init: 'AM', initCls: 'bg-purple-100 text-purple-700', name: 'Aisha M.', meta: '1.2k followers · 78% agree',         following: false },
+                { init: 'KO', initCls: 'bg-green-100 text-green-700',  name: 'Kofi O.',  meta: '2.4k followers · 61% agree',         following: false },
+              ].map((u) => (
+                <div key={u.name} className="flex items-center gap-3">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${u.initCls}`}>{u.init}</div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-semibold leading-none mb-0.5" style={{ color: '#111827' }}>{u.name}</p>
+                    <p className="text-xs" style={{ color: '#9CA3AF' }}>{u.meta}</p>
+                  </div>
+                  <button className={`text-xs font-semibold px-3 py-1 rounded-full border flex-shrink-0 ${u.following ? 'border-gray-300 text-gray-500' : 'border-blue-500 text-blue-600'}`}>
+                    {u.following ? 'Following' : 'Follow'}
+                  </button>
+                </div>
+              ))}
+            </div>
+            <div className="px-5 pt-4 pb-5 border-t border-gray-100">
+              <h3 className="font-bold text-base mb-1.5" style={{ color: '#111827' }}>Social graph</h3>
+              <p className="text-sm leading-relaxed" style={{ color: '#6B7280' }}>
+                Follow opinion leaders, build your network, and engage in direct conversations with people whose views align — or clash — with yours.
+              </p>
+            </div>
+          </div>
+
+          {/* ── 5: Streaks and leaderboards ── */}
+          <div className="bg-white rounded-2xl border border-[#E5E3DF] flex flex-col overflow-hidden">
+            <div className="p-5 flex-1 flex flex-col items-center justify-center text-center">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-3xl">🔥</span>
+                <span className="text-4xl font-black" style={{ color: '#111827' }}>14</span>
+              </div>
+              <p className="text-sm mb-5" style={{ color: '#6B7280' }}>day streak — keep it going</p>
+              <div className="flex gap-1.5 mb-3">
+                {['M','T','W','T','F','S','S'].map((d, i) => (
+                  <div key={i} className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold ${
+                    i === 5 ? 'bg-orange-500 text-white' : i < 5 ? 'bg-gray-100 text-gray-600' : 'bg-gray-100 text-gray-300'
+                  }`}>{d}</div>
+                ))}
+              </div>
+              <p className="text-xs" style={{ color: '#9CA3AF' }}>vote daily to maintain your streak</p>
+            </div>
+            <div className="px-5 pt-4 pb-5 border-t border-gray-100">
+              <h3 className="font-bold text-base mb-1.5" style={{ color: '#111827' }}>Streaks and leaderboards</h3>
+              <p className="text-sm leading-relaxed" style={{ color: '#6B7280' }}>
+                Pulse the streak to climb the weekly leaderboard. The most engaged voices get celebrated — are you in the top 100?
+              </p>
+            </div>
+          </div>
+
+          {/* ── 6: Personality insights ── */}
+          <div className="bg-white rounded-2xl border border-[#E5E3DF] flex flex-col overflow-hidden">
+            <div className="p-5 flex-1">
+              <p className="text-xs text-center mb-3" style={{ color: '#9CA3AF' }}>based on your 47 votes</p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {[
+                  { label: 'Independent thinker', cls: 'bg-blue-50 text-blue-700'   },
+                  { label: 'Progressive',          cls: 'bg-green-50 text-green-700' },
+                  { label: 'Realist',              cls: 'bg-yellow-50 text-yellow-700' },
+                  { label: 'Contrarian',           cls: 'bg-orange-50 text-orange-700' },
+                ].map((t) => (
+                  <span key={t.label} className={`text-xs font-semibold px-3 py-1 rounded-full ${t.cls}`}>{t.label}</span>
+                ))}
+              </div>
+              <div className="border border-[#E5E3DF] rounded-xl p-3 bg-gray-50">
+                <p className="text-xs mb-0.5" style={{ color: '#9CA3AF' }}>rare opinion holder</p>
+                <p className="text-sm font-semibold" style={{ color: '#111827' }}>Only 18% voted the same as you</p>
+              </div>
+            </div>
+            <div className="px-5 pt-4 pb-5 border-t border-gray-100">
+              <h3 className="font-bold text-base mb-1.5" style={{ color: '#111827' }}>Personality insights</h3>
+              <p className="text-sm leading-relaxed" style={{ color: '#6B7280' }}>
+                Your votes reveal your worldview. Pulse builds a live opinion profile — showing where you stand, how rare your views are, and what kind of thinker you are.
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
