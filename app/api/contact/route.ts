@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
   }
 
   const { data, error } = await resend.emails.send({
-    from: 'PulseSphere Contact <no-reply@company.pulsesphere.app>',
+    from: 'PulseSphere Contact <no-reply@contact.pulsesphere.app>',
     to: 'support@pulsesphere.app',
     replyTo: email,
     subject: `[Contact] ${subject}`,
