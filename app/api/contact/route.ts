@@ -15,24 +15,26 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 })
   }
 
-  try {
-    await resend.emails.send({
-      from: 'PulseSphere Contact <no-reply@company.pulsesphere.app>',
-      to: 'support@pulsesphere.app',
-      replyTo: email,
-      subject: `[Contact] ${subject}`,
-      text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
-      html: `
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-        <p><strong>Subject:</strong> ${subject}</p>
-        <hr />
-        <p style="white-space:pre-wrap">${message}</p>
-      `,
-    })
+  const { data, error } = await resend.emails.send({
+    from: 'PulseSphere Contact <no-reply@company.pulsesphere.app>',
+    to: 'support@pulsesphere.app',
+    replyTo: email,
+    subject: `[Contact] ${subject}`,
+    text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
+    html: `
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+      <p><strong>Subject:</strong> ${subject}</p>
+      <hr />
+      <p style="white-space:pre-wrap">${message}</p>
+    `,
+  })
 
-    return NextResponse.json({ ok: true })
-  } catch {
+  if (error) {
+    console.error('Resend error:', error)
     return NextResponse.json({ error: 'Failed to send message. Please try again.' }, { status: 500 })
   }
+
+  console.log('Email sent:', data?.id)
+  return NextResponse.json({ ok: true })
 }
