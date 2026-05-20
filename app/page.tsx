@@ -118,6 +118,72 @@ function Nav() {
   )
 }
 
+function WaitlistForm() {
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault()
+    setStatus('loading')
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      const json = await res.json()
+      if (!res.ok) {
+        setErrorMsg(json.error || 'Something went wrong.')
+        setStatus('error')
+      } else {
+        setStatus('success')
+      }
+    } catch {
+      setErrorMsg('Network error. Please try again.')
+      setStatus('error')
+    }
+  }
+
+  if (status === 'success') {
+    return (
+      <div className="mt-8 flex items-center gap-2 text-sm">
+        <span className="text-green-400 font-bold">✓</span>
+        <span style={{ color: '#aaa' }}>You&rsquo;re on the list &mdash; we&rsquo;ll email you when Pulse launches.</span>
+      </div>
+    )
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="mt-8 max-w-sm">
+      <p className="text-xs uppercase tracking-widest mb-3" style={{ color: '#555' }}>Get notified at launch</p>
+      <div className="flex gap-2">
+        <input
+          type="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          placeholder="your@email.com"
+          required
+          className="flex-1 min-w-0 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none transition-colors"
+          style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)' }}
+          onFocus={e => (e.currentTarget.style.borderColor = 'rgba(74,158,255,0.5)')}
+          onBlur={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)')}
+        />
+        <button
+          type="submit"
+          disabled={status === 'loading'}
+          className="bg-accent text-white px-5 py-3 rounded-xl font-semibold text-sm hover:bg-blue-500 transition-colors disabled:opacity-60 whitespace-nowrap"
+        >
+          {status === 'loading' ? '…' : 'Notify Me'}
+        </button>
+      </div>
+      {status === 'error' && (
+        <p className="text-red-400 text-xs mt-2">{errorMsg}</p>
+      )}
+    </form>
+  )
+}
+
 function Hero() {
   return (
     <section
@@ -168,8 +234,10 @@ function Hero() {
           </button>
         </div>
 
+        <WaitlistForm />
+
         {/* Store download buttons */}
-        <div className="flex flex-wrap gap-3 mt-6">
+        <div className="flex flex-wrap gap-3 mt-8">
           {/* Apple App Store — replace href when live */}
           <a
             href="#"
