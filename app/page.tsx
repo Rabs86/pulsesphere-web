@@ -42,8 +42,8 @@ function Nav() {
             <Image
               src="/pulsesphere-logo.png"
               alt="PulseSphere LLC"
-              width={130}
-              height={52}
+              width={180}
+              height={59}
               style={{ objectFit: 'contain', objectPosition: 'left center' }}
               priority
             />
