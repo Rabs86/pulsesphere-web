@@ -174,36 +174,31 @@ function Stats() {
 }
 
 function Product() {
-  const features = [
+  const cards = [
     {
-      icon: '🗳️',
-      title: 'Real-Time Polls',
-      desc: 'Create questions and watch responses roll in instantly. Every vote is counted live and results are visible to all participants.',
-    },
-    {
-      icon: '🔥',
+      stat: 'Live ranking',
       title: 'Trending Feed',
       desc: 'An algorithmic feed surfaces polls gaining momentum — giving users a front-row seat to emerging consensus and viral debates.',
     },
     {
-      icon: '🗂️',
+      stat: '9 categories',
       title: 'Category Discovery',
-      desc: 'Browse polls by topic — Politics, Sports, Technology, Entertainment, Science, and more. Every interest has a home.',
+      desc: 'Browse by topic — Politics, Sports, Tech, Entertainment, Food, Health, Local, Society, and more. Every interest has a home.',
     },
     {
-      icon: '📍',
+      stat: 'City-level',
       title: 'Location Polls',
-      desc: 'Geo-tagged questions let communities surface hyperlocal opinions — what people in your city or region are thinking right now.',
+      desc: 'Geo-tagged questions surface hyperlocal opinions — what people in your city or region are thinking right now.',
     },
     {
-      icon: '👥',
+      stat: 'Follow · DM · Debate',
       title: 'Social Graph',
       desc: 'Follow opinion leaders, build your network, and engage in direct conversations with people who share your interests.',
     },
     {
-      icon: '🏆',
-      title: 'Leaderboards & Recaps',
-      desc: 'Weekly recaps and leaderboards celebrate the most engaged voices, keeping the community active and competitive.',
+      stat: 'Weekly recaps',
+      title: 'Leaderboards',
+      desc: 'Weekly rankings celebrate the most engaged voices, keeping the community active and coming back.',
     },
   ]
 
@@ -213,7 +208,7 @@ function Product() {
       className="py-28 relative"
       style={{ backgroundColor: '#050816' }}
     >
-      {/* Subtle dot-grid texture — classic premium dark-site technique */}
+      {/* Dot-grid texture */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -232,14 +227,78 @@ function Product() {
           </p>
         </div>
 
+        {/* ── Hero feature: Real-Time Polls ── */}
+        <div
+          className="grid md:grid-cols-2 gap-10 items-center rounded-3xl border border-line p-8 md:p-12 mb-5 overflow-hidden relative"
+          style={{ backgroundColor: '#081022' }}
+        >
+          {/* Glow */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'radial-gradient(ellipse 60% 80% at 80% 50%, rgba(74,158,255,0.07) 0%, transparent 100%)',
+            }}
+          />
+
+          {/* Left: copy */}
+          <div className="relative">
+            <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-3 py-1 mb-5">
+              <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+              <span className="text-accent text-xs font-semibold uppercase tracking-widest">Core feature</span>
+            </div>
+            <div className="text-5xl md:text-6xl font-black text-accent mb-3 leading-none">&lt; 500ms</div>
+            <h3 className="text-white font-black text-2xl mb-4">Real-Time Polls</h3>
+            <p className="text-dim text-base leading-relaxed mb-6">
+              Results update the instant a vote is cast — no refresh, no delay. Every participant
+              watches the numbers move live as opinions pour in.
+            </p>
+            <ul className="space-y-2">
+              {[
+                'Vote counts update via live WebSocket connection',
+                'Results visible to all participants simultaneously',
+                'Percentages recalculate on every single vote',
+              ].map((point) => (
+                <li key={point} className="flex items-start gap-2 text-sm text-dim">
+                  <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right: phone mockup */}
+          <div className="relative flex justify-center md:justify-end">
+            <div
+              className="relative w-[200px] md:w-[230px] rounded-[2.2rem] overflow-hidden border border-white/15"
+              style={{ boxShadow: '0 0 60px rgba(74,158,255,0.18), 0 30px 60px rgba(0,0,0,0.5)' }}
+            >
+              {/* Dynamic island */}
+              <div className="absolute top-3 left-1/2 -translate-x-1/2 w-16 h-4 bg-black rounded-full z-10" />
+              {/* Fade at bottom so it bleeds nicely into the card */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-24 z-10 pointer-events-none"
+                style={{ background: 'linear-gradient(transparent, #081022)' }}
+              />
+              <Image
+                src="/screenshot-feed.png"
+                alt="Pulse live feed showing a real-time poll"
+                width={390}
+                height={844}
+                className="w-full h-auto block"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* ── Stat-led feature cards ── */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((f) => (
+          {cards.map((f) => (
             <div
               key={f.title}
               className="border border-line rounded-2xl p-6 hover:border-accent/30 transition-all hover:-translate-y-0.5"
               style={{ backgroundColor: '#081022' }}
             >
-              <div className="text-3xl mb-4">{f.icon}</div>
+              <div className="text-xl font-black text-accent mb-1 tracking-tight">{f.stat}</div>
               <h3 className="text-white font-bold text-lg mb-2">{f.title}</h3>
               <p className="text-dim text-sm leading-relaxed">{f.desc}</p>
             </div>
