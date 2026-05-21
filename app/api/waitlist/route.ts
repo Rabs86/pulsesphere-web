@@ -14,6 +14,7 @@ export async function POST(req: NextRequest) {
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
   if (supabaseUrl && supabaseKey) {
+    console.log('Supabase URL:', supabaseUrl)
     const res = await fetch(`${supabaseUrl}/rest/v1/waitlist`, {
       method: 'POST',
       headers: {
