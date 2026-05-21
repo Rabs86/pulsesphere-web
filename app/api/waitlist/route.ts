@@ -10,11 +10,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Please enter a valid email address.' }, { status: 400 })
   }
 
-  const supabaseUrl = process.env.SUPABASE_URL
+  const supabaseUrl = (process.env.SUPABASE_URL ?? '').replace(/\/rest\/v1\/?$/, '').replace(/\/$/, '')
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
   if (supabaseUrl && supabaseKey) {
-    console.log('Supabase URL:', supabaseUrl)
     const res = await fetch(`${supabaseUrl}/rest/v1/waitlist`, {
       method: 'POST',
       headers: {
@@ -29,7 +28,7 @@ export async function POST(req: NextRequest) {
     if (!res.ok && res.status !== 409) {
       const detail = await res.text()
       console.error('Supabase waitlist insert error:', res.status, detail)
-      return NextResponse.json({ debug: { status: res.status, body: detail, url: supabaseUrl } }, { status: 500 })
+      return NextResponse.json({ error: 'Could not save your email. Please try again.' }, { status: 500 })
     }
   }
 
