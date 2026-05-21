@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     if (!res.ok && res.status !== 409) {
       const detail = await res.text()
       console.error('Supabase waitlist insert error:', res.status, detail)
-      return NextResponse.json({ error: 'Could not save your email. Please try again.' }, { status: 500 })
+      return NextResponse.json({ debug: { status: res.status, body: detail } }, { status: 500 })
     }
   }
 
