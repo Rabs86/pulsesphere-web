@@ -929,15 +929,15 @@ function Footer() {
           <h4 className="text-white font-semibold text-sm mb-4">Product</h4>
           <ul className="space-y-3">
             {[
-              { label: 'Features', href: '#product' },
-              { label: 'Mission', href: '#mission' },
-              { label: 'Download', href: '#' },
+              { label: 'Features', section: 'product' },
+              { label: 'Mission', section: 'mission' },
               { label: 'Try Pulse Web', href: 'https://pulsesphere.app' },
             ].map((l) => (
               <li key={l.label}>
-                <a href={l.href} target={l.href.startsWith('http') ? '_blank' : undefined}
-                  rel={l.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="text-dim text-sm hover:text-white transition-colors">{l.label}</a>
+                {'section' in l
+                  ? <button onClick={() => scrollTo(l.section!)} className="text-dim text-sm hover:text-white transition-colors cursor-pointer">{l.label}</button>
+                  : <a href={l.href} target="_blank" rel="noopener noreferrer" className="text-dim text-sm hover:text-white transition-colors">{l.label}</a>
+                }
               </li>
             ))}
           </ul>
@@ -948,13 +948,16 @@ function Footer() {
           <h4 className="text-white font-semibold text-sm mb-4">Company</h4>
           <ul className="space-y-3">
             {[
-              { label: 'About', href: '#company' },
-              { label: 'Team', href: '#team' },
-              { label: 'Contact', href: '#contact' },
+              { label: 'About', section: 'company' },
+              { label: 'Team', section: 'team' },
+              { label: 'Contact', section: 'contact' },
               { label: 'support@pulsesphere.app', href: 'mailto:support@pulsesphere.app' },
             ].map((l) => (
               <li key={l.label}>
-                <a href={l.href} className="text-dim text-sm hover:text-white transition-colors">{l.label}</a>
+                {'section' in l
+                  ? <button onClick={() => scrollTo(l.section!)} className="text-dim text-sm hover:text-white transition-colors cursor-pointer">{l.label}</button>
+                  : <a href={l.href} className="text-dim text-sm hover:text-white transition-colors">{l.label}</a>
+                }
               </li>
             ))}
           </ul>
@@ -1010,7 +1013,16 @@ function Footer() {
 export default function Home() {
   useEffect(() => {
     window.history.scrollRestoration = 'manual'
-    window.scrollTo(0, 0)
+    // Strip any hash so the browser doesn't auto-scroll to a section on load
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname)
+    }
+    // rAF ensures the scroll fires after the browser's own scroll restoration on mobile
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0)
+      document.documentElement.scrollTop = 0
+      document.body.scrollTop = 0
+    })
   }, [])
 
   return (
