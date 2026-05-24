@@ -255,7 +255,7 @@ function Hero() {
               <span className="text-xs font-semibold px-2 py-0.5 rounded-full text-amber-400 bg-amber-400/10">Coming Soon</span>
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-3">
-              Preserve your family&rsquo;s stories before they&rsquo;re gone. AI-guided interviews, transcription &amp; time capsules.
+              Preserve your family&rsquo;s stories before they are gone. AI-guided interviews, transcription &amp; time capsules.
             </p>
             <p className="text-white/30 text-xs mb-3 uppercase tracking-widest">Get early access</p>
             <AncestreEarlyAccess />
@@ -538,7 +538,7 @@ function OurApps() {
     },
     {
       name: 'Ancestre',
-      tagline: "Preserve your family's stories before they're gone.",
+      tagline: "Preserve your family's stories before they are gone.",
       description: 'An AI-guided family memory platform where voice recordings become lasting archives. Capture stories through structured interviews, build a family tree, seal time capsules for future generations, and transcribe every word.',
       status: 'Coming Soon',
       statusCls: 'text-amber-400 bg-amber-400/10',
@@ -564,7 +564,7 @@ function OurApps() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Our Apps</div>
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">What We&rsquo;re Building</h2>
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">What We Are Building</h2>
           <p className="text-dim text-lg max-w-2xl mx-auto leading-relaxed">
             PulseSphere builds mobile-first platforms that solve meaningful human problems — from how we form opinions together, to how we preserve the stories that define us.
           </p>
@@ -721,10 +721,10 @@ function Company() {
             PulseSphere LLC was founded in 2026 on a simple premise: the most important human experiences — our opinions, our disagreements, our memories, our stories — deserve better infrastructure than what exists today.
           </p>
           <p>
-            <strong className="text-white/80">Pulsefire</strong> is our answer to the problem of public opinion — real-time polling that surfaces genuine sentiment at scale, giving everyone a voice and a result they can actually see. <strong className="text-white/80">Ancestre</strong> is our answer to a quieter crisis: the stories inside ordinary families disappearing every day, not because people don&rsquo;t want to share them, but because no one ever sat down with a mic and asked the right questions.
+            <strong className="text-white/80">Pulsefire</strong> is our answer to the problem of public opinion — real-time polling that surfaces genuine sentiment at scale, giving everyone a voice and a result they can actually see. <strong className="text-white/80">Ancestre</strong> is our answer to a quieter crisis: the stories inside ordinary families disappearing every day, not because people do not want to share them, but because no one ever sat down with a microphone and asked the right questions.
           </p>
           <p>
-            We&rsquo;re an independent company headquartered in Everett, Washington. No venture pressure, no advertising business model. We build platforms that earn their place on your phone by being genuinely useful — mobile-first, designed to scale, and built to last.
+            PulseSphere is an independent company headquartered in Everett, Washington. No venture pressure, no advertising business model. We build platforms that earn their place by being genuinely useful — mobile-first, designed to scale, and built to last.
           </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
