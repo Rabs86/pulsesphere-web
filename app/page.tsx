@@ -548,13 +548,7 @@ function OurApps() {
       features: ['AI-guided interviews', 'Voice transcription', 'Family tree builder', 'Time capsules'],
       cta: { label: 'Get Early Access', href: '#contact', external: false },
       icon: (
-        <svg viewBox="0 0 40 40" className="w-10 h-10" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="40" height="40" rx="10" fill="rgba(200,120,42,0.15)" />
-          <rect x="18" y="24" width="4" height="10" rx="2" fill="#C8782A" opacity="0.7" />
-          <circle cx="20" cy="16" r="8" fill="#C8782A" opacity="0.85" />
-          <circle cx="13" cy="20" r="5" fill="#C8782A" opacity="0.6" />
-          <circle cx="27" cy="20" r="5" fill="#C8782A" opacity="0.6" />
-        </svg>
+        <Image src="/ancestre-logo.png" alt="Ancestre" width={40} height={40} className="w-10 h-10 rounded-xl" />
       ),
     },
   ]

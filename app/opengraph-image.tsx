@@ -13,6 +13,9 @@ export default function Image() {
   const logoImg = readFileSync(join(process.cwd(), 'public/pulsesphere-logo.png'))
   const logoSrc = `data:image/png;base64,${logoImg.toString('base64')}`
 
+  const ancestreImg = readFileSync(join(process.cwd(), 'public/ancestre-logo.png'))
+  const ancestreSrc = `data:image/png;base64,${ancestreImg.toString('base64')}`
+
   return new ImageResponse(
     (
       <div
@@ -166,7 +169,7 @@ export default function Image() {
                 padding: '8px 18px',
               }}
             >
-              <div style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#C8782A', display: 'flex' }} />
+              <img src={ancestreSrc} style={{ width: '20px', height: '20px', borderRadius: '4px' }} />
               <span style={{ color: '#C8782A', fontSize: '16px', fontWeight: 700 }}>Ancestre — Coming Soon</span>
             </div>
           </div>
