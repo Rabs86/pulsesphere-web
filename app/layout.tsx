@@ -5,14 +5,14 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'PulseSphere LLC — Building the Infrastructure for Public Opinion',
+  title: 'PulseSphere LLC — Apps That Change How People Connect',
   description:
-    'PulseSphere LLC is an independent technology company headquartered in Everett, Washington, building Pulse — a real-time social polling platform for iOS and Android.',
-  keywords: ['PulseSphere', 'Pulse app', 'social polling', 'public opinion', 'mobile app', 'Washington'],
+    'PulseSphere LLC is an independent technology company headquartered in Everett, Washington, building Pulse (real-time social polling) and Ancestre (AI-guided family memory preservation).',
+  keywords: ['PulseSphere', 'Pulse app', 'Ancestre', 'social polling', 'family memory', 'mobile app', 'Washington'],
   metadataBase: new URL('https://company.pulsesphere.app'),
   openGraph: {
-    title: 'PulseSphere LLC',
-    description: 'Building the infrastructure for real-time public opinion.',
+    title: 'PulseSphere LLC — Apps That Change How People Connect',
+    description: 'Building Pulse and Ancestre — mobile-first platforms that solve meaningful human problems at scale.',
     url: 'https://company.pulsesphere.app',
     siteName: 'PulseSphere LLC',
     type: 'website',
