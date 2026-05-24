@@ -111,59 +111,64 @@ export default function Image() {
             }}
           />
 
-          {/* Headline — all text in spans to satisfy satori */}
+          {/* Headline */}
           <div
             style={{
               display: 'flex',
               flexWrap: 'wrap',
               alignItems: 'baseline',
-              fontSize: '50px',
+              fontSize: '48px',
               fontWeight: 900,
-              lineHeight: 1.15,
-              marginBottom: '22px',
+              lineHeight: 1.12,
+              marginBottom: '20px',
             }}
           >
-            <span style={{ color: '#ffffff' }}>The world&#39;s opinion&#160;</span>
-            <span style={{ color: '#4a9eff' }}>— in real time.</span>
+            <span style={{ color: '#ffffff' }}>Apps that change&#160;</span>
+            <span style={{ color: '#4a9eff' }}>how people connect.</span>
           </div>
 
           {/* Subheading */}
           <div
             style={{
               display: 'flex',
-              fontSize: '21px',
+              fontSize: '20px',
               color: 'rgba(255,255,255,0.45)',
-              marginBottom: '44px',
+              marginBottom: '36px',
             }}
           >
-            <span>Real questions. Real votes. Transparent results.</span>
+            <span>Mobile-first platforms that solve real human problems — at scale.</span>
           </div>
 
-          {/* Live pill */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              background: 'rgba(74,158,255,0.1)',
-              border: '1px solid rgba(74,158,255,0.25)',
-              borderRadius: '999px',
-              padding: '10px 20px',
-              alignSelf: 'flex-start',
-            }}
-          >
+          {/* Product pills */}
+          <div style={{ display: 'flex', gap: '12px' }}>
             <div
               style={{
-                width: '8px',
-                height: '8px',
-                borderRadius: '50%',
-                backgroundColor: '#4a9eff',
                 display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: 'rgba(74,158,255,0.1)',
+                border: '1px solid rgba(74,158,255,0.25)',
+                borderRadius: '999px',
+                padding: '8px 18px',
               }}
-            />
-            <span style={{ color: '#4a9eff', fontSize: '17px', fontWeight: 600 }}>
-              Available on iOS &amp; Android
-            </span>
+            >
+              <div style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#4a9eff', display: 'flex' }} />
+              <span style={{ color: '#4a9eff', fontSize: '16px', fontWeight: 700 }}>Pulsefire — Live</span>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: 'rgba(200,120,42,0.1)',
+                border: '1px solid rgba(200,120,42,0.3)',
+                borderRadius: '999px',
+                padding: '8px 18px',
+              }}
+            >
+              <div style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#C8782A', display: 'flex' }} />
+              <span style={{ color: '#C8782A', fontSize: '16px', fontWeight: 700 }}>Ancestre — Coming Soon</span>
+            </div>
           </div>
         </div>
       </div>
