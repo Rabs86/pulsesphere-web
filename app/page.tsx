@@ -270,10 +270,10 @@ function Hero() {
 function Stats() {
   const ref = useFadeIn()
   const items = [
-    { label: 'Products', value: '2 Apps' },
-    { label: 'Headquarters', value: 'Everett, WA' },
-    { label: 'Founded', value: '2026' },
-    { label: 'Pulsefire Status', value: 'Live & Growing' },
+    { label: 'Headquarters',      value: 'Everett, WA'    },
+    { label: 'Founded',           value: '2026'            },
+    { label: 'Pulsefire',         value: 'Live & Growing'  },
+    { label: 'Ancestre',          value: 'Coming Soon'     },
   ]
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className="fade-section" style={{ backgroundColor: '#081022' }}>
@@ -620,9 +620,9 @@ function OurApps() {
 function Mission() {
   const ref = useFadeIn()
   const stats = [
-    { value: '160+',  label: 'Polls created on Pulsefire' },
     { value: '130K+', label: 'Votes cast on Pulsefire' },
     { value: 'Free',  label: 'Pulsefire — always' },
+    { value: '2026',  label: 'Ancestre — launching' },
   ]
   return (
     <section id="mission" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28" style={{ backgroundColor: '#081022' }}>
@@ -718,10 +718,10 @@ function Company() {
         </div>
         <div className="max-w-3xl mx-auto space-y-6 text-dim text-lg leading-relaxed mb-16">
           <p>
-            Public opinion has always existed — but it has never had the right infrastructure. It gets scattered across comment threads, buried in feeds, and hijacked by whoever shouts loudest. PulseSphere LLC was founded in 2026 to change that.
+            PulseSphere LLC was founded in 2026 on a simple premise: the most important human experiences — our opinions, our disagreements, our memories, our stories — deserve better infrastructure than what exists today.
           </p>
           <p>
-            We built Pulsefire because real-time polling at scale can surface genuine public sentiment — what communities care about, what they disagree on, and where consensus is forming. We built Ancestre because the most important stories in the world are disappearing every day — not because people don't want to share them, but because no one sat down with a mic and asked the right questions.
+            <strong className="text-white/80">Pulsefire</strong> is our answer to the problem of public opinion — real-time polling that surfaces genuine sentiment at scale, giving everyone a voice and a result they can actually see. <strong className="text-white/80">Ancestre</strong> is our answer to a quieter crisis: the stories inside ordinary families disappearing every day, not because people don&rsquo;t want to share them, but because no one ever sat down with a mic and asked the right questions.
           </p>
           <p>
             We&rsquo;re an independent company headquartered in Everett, Washington. No venture pressure, no advertising business model. We build platforms that earn their place on your phone by being genuinely useful — mobile-first, designed to scale, and built to last.
@@ -729,10 +729,10 @@ function Company() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
           {[
-            { label: 'Founded',        value: '2026'              },
-            { label: 'Headquarters',   value: 'Everett, WA'       },
-            { label: 'Platforms',      value: 'iOS · Android · Web' },
-            { label: 'Apps shipping',  value: '2'                 },
+            { label: 'Founded',       value: '2026'                },
+            { label: 'Headquarters',  value: 'Everett, WA'         },
+            { label: 'Platforms',     value: 'iOS · Android · Web' },
+            { label: 'Products',      value: 'Pulsefire · Ancestre' },
           ].map((f) => (
             <div key={f.label} className="border border-line rounded-xl px-5 py-4 text-center" style={{ backgroundColor: '#0a1428' }}>
               <div className="text-white font-bold text-sm mb-1">{f.value}</div>
