@@ -7,6 +7,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        display: ['var(--font-display)', 'Inter', 'sans-serif'],
+      },
       colors: {
         accent: '#0096FF',
         bg: '#06061A',

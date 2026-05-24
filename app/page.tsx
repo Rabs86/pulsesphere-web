@@ -213,7 +213,7 @@ function Hero() {
           <span className="text-accent text-sm font-medium">Independent · Everett, WA · Est. 2026</span>
         </div>
 
-        <h1 className="text-4xl md:text-7xl font-black text-white leading-[1.05] mb-4 max-w-3xl">
+        <h1 className="font-display text-4xl md:text-7xl font-black text-white leading-[1.05] mb-4 max-w-3xl">
           Apps that change{' '}
           <span className="text-accent">how people connect.</span>
         </h1>
@@ -300,7 +300,7 @@ function Product() {
 
         <div className="text-center mb-14">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Pulsefire — The Product</div>
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">What Pulsefire Does</h2>
+          <h2 className="font-display text-3xl md:text-5xl font-black text-white mb-4">What Pulsefire Does</h2>
           <p className="text-dim text-lg max-w-2xl mx-auto leading-relaxed">
             A full-featured social polling platform built for engagement, transparency, and real-time discovery.
           </p>
@@ -488,7 +488,7 @@ function AppShowcase() {
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Pulsefire — The App</div>
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">See Pulsefire in Action</h2>
+          <h2 className="font-display text-3xl md:text-5xl font-black text-white mb-4">See Pulsefire in Action</h2>
           <p className="text-dim text-lg max-w-xl mx-auto">Real questions. Real votes. Real time.</p>
         </div>
         <div className="flex items-end justify-center gap-4 md:gap-6">
@@ -564,7 +564,7 @@ function OurApps() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Our Apps</div>
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">What We Are Building</h2>
+          <h2 className="font-display text-3xl md:text-5xl font-black text-white mb-4">What We Are Building</h2>
           <p className="text-dim text-lg max-w-2xl mx-auto leading-relaxed">
             PulseSphere builds mobile-first platforms that solve meaningful human problems — from how we form opinions together, to how we preserve the stories that define us.
           </p>
@@ -630,7 +630,7 @@ function Mission() {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-4">Our Mission</div>
-            <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-6">
+            <h2 className="font-display text-3xl md:text-5xl font-black text-white leading-tight mb-6">
               Build platforms that{' '}
               <span className="text-accent">actually matter</span>
             </h2>
@@ -668,7 +668,7 @@ function Team() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">The Team</div>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Who Builds PulseSphere</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-black text-white mb-4">Who Builds PulseSphere</h2>
           <p className="text-dim text-lg">The people behind the platform</p>
         </div>
         <div className="flex justify-center">
@@ -714,7 +714,7 @@ function Company() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">The Company</div>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Built to Build Things That Last</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-black text-white mb-4">Built to Build Things That Last</h2>
         </div>
         <div className="max-w-3xl mx-auto space-y-6 text-dim text-lg leading-relaxed mb-16">
           <p>
@@ -784,7 +784,7 @@ function Contact() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Contact</div>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Get in Touch</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-black text-white mb-4">Get in Touch</h2>
           <p className="text-dim text-lg max-w-xl mx-auto">For partnerships, press, investment, or general questions — we read every message.</p>
         </div>
         <div className="max-w-2xl mx-auto">
