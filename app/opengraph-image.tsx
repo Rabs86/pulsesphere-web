@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
-export const alt = "PulseSphere — The world's opinion, in real time"
+export const alt = "PulseSphere — Building Pulsefire & Ancestre"
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 

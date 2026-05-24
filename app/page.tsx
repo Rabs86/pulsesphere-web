@@ -106,7 +106,7 @@ function Nav() {
           <div className="flex items-center gap-3">
             <a href="https://pulsesphere.app" target="_blank" rel="noopener noreferrer"
               className="hidden sm:inline-flex bg-accent text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-500 transition-colors">
-              Try Pulse →
+              Try Pulsefire →
             </a>
             <button className="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5"
               onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
@@ -134,7 +134,7 @@ function Nav() {
               <a href="https://pulsesphere.app" target="_blank" rel="noopener noreferrer"
                 className="bg-accent text-white px-8 py-3 rounded-xl font-bold text-base hover:bg-blue-500 transition-colors"
                 onClick={() => setMenuOpen(false)}>
-                Try Pulse →
+                Try Pulsefire →
               </a>
               <button onClick={() => handleNav('apps')}
                 className="border border-amber-500/40 text-amber-400 px-8 py-3 rounded-xl font-bold text-base hover:bg-amber-400/10 transition-colors">
@@ -229,16 +229,16 @@ function Hero() {
           </button>
           <a href="https://pulsesphere.app" target="_blank" rel="noopener noreferrer"
             className="border border-line text-white px-6 md:px-8 py-3.5 md:py-4 rounded-xl font-bold text-base hover:border-accent/50 transition-colors">
-            Try Pulse Live →
+            Try Pulsefire Live →
           </a>
         </div>
 
         {/* App teasers */}
         <div className="mt-14 grid sm:grid-cols-2 gap-4 max-w-2xl">
-          {/* Pulse */}
+          {/* Pulsefire */}
           <div className="rounded-2xl border border-accent/20 p-5" style={{ backgroundColor: 'rgba(74,158,255,0.05)' }}>
             <div className="flex items-center justify-between mb-3">
-              <span className="text-accent text-sm font-bold uppercase tracking-wider">Pulse</span>
+              <span className="text-accent text-sm font-bold uppercase tracking-wider">Pulsefire</span>
               <span className="text-xs font-semibold px-2 py-0.5 rounded-full text-green-400 bg-green-400/10">Live</span>
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-4">
@@ -273,7 +273,7 @@ function Stats() {
     { label: 'Products', value: '2 Apps' },
     { label: 'Headquarters', value: 'Everett, WA' },
     { label: 'Founded', value: '2026' },
-    { label: 'Pulse Status', value: 'Live & Growing' },
+    { label: 'Pulsefire Status', value: 'Live & Growing' },
   ]
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className="fade-section" style={{ backgroundColor: '#081022' }}>
@@ -291,7 +291,7 @@ function Stats() {
   )
 }
 
-// ── Product (Pulse features) ───────────────────────────────────────────────────
+// ── Product (Pulsefire features) ───────────────────────────────────────────────────
 function Product() {
   const ref = useFadeIn()
   return (
@@ -299,8 +299,8 @@ function Product() {
       <div className="max-w-6xl mx-auto px-6">
 
         <div className="text-center mb-14">
-          <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Pulse — The Product</div>
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">What Pulse Does</h2>
+          <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Pulsefire — The Product</div>
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">What Pulsefire Does</h2>
           <p className="text-dim text-lg max-w-2xl mx-auto leading-relaxed">
             A full-featured social polling platform built for engagement, transparency, and real-time discovery.
           </p>
@@ -438,7 +438,7 @@ function Product() {
             </div>
             <div className="px-5 pt-4 pb-5 border-t border-white/8">
               <h3 className="font-bold text-base mb-1.5 text-white">Streaks and leaderboards</h3>
-              <p className="text-dim text-sm leading-relaxed">Pulse the streak to climb the weekly leaderboard. The most engaged voices get celebrated — are you in the top 100?</p>
+              <p className="text-dim text-sm leading-relaxed">Keep your streak alive to climb the weekly leaderboard. The most engaged voices get celebrated — are you in the top 100?</p>
             </div>
           </div>
 
@@ -463,7 +463,7 @@ function Product() {
             </div>
             <div className="px-5 pt-4 pb-5 border-t border-white/8">
               <h3 className="font-bold text-base mb-1.5 text-white">Personality insights</h3>
-              <p className="text-dim text-sm leading-relaxed">Your votes reveal your worldview. Pulse builds a live opinion profile — showing where you stand, how rare your views are, and what kind of thinker you are.</p>
+              <p className="text-dim text-sm leading-relaxed">Your votes reveal your worldview. Pulsefire builds a live opinion profile — showing where you stand, how rare your views are, and what kind of thinker you are.</p>
             </div>
           </div>
 
@@ -477,9 +477,9 @@ function Product() {
 function AppShowcase() {
   const ref = useFadeIn()
   const screens = [
-    { src: '/screenshot-discover.png', alt: 'Pulse Discover screen', label: 'Browse by Topic' },
-    { src: '/screenshot-feed.png',     alt: 'Pulse home feed',        label: 'Live Feed', featured: true },
-    { src: '/screenshot-vote.png',     alt: 'Pulse quick-vote',       label: 'Quick Vote' },
+    { src: '/screenshot-discover.png', alt: 'Pulsefire Discover screen', label: 'Browse by Topic' },
+    { src: '/screenshot-feed.png',     alt: 'Pulsefire home feed',        label: 'Live Feed', featured: true },
+    { src: '/screenshot-vote.png',     alt: 'Pulsefire quick-vote',       label: 'Quick Vote' },
   ]
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-24 overflow-hidden" style={{ backgroundColor: '#050816' }}>
@@ -487,8 +487,8 @@ function AppShowcase() {
         style={{ background: 'radial-gradient(ellipse 80% 80% at 50% 50%, rgba(74,158,255,0.08) 0%, transparent 100%)' }} />
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
-          <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Pulse — The App</div>
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">See Pulse in Action</h2>
+          <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Pulsefire — The App</div>
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">See Pulsefire in Action</h2>
           <p className="text-dim text-lg max-w-xl mx-auto">Real questions. Real votes. Real time.</p>
         </div>
         <div className="flex items-end justify-center gap-4 md:gap-6">
@@ -514,7 +514,7 @@ function OurApps() {
   const ref = useFadeIn()
   const apps = [
     {
-      name: 'Pulse',
+      name: 'Pulsefire',
       tagline: 'Vote on anything. See what the world thinks.',
       description: 'A real-time social polling platform where questions become conversations and votes build identity. Ask anything, vote on everything, and discover exactly where you — and everyone else — stands.',
       status: 'Live',
@@ -523,7 +523,7 @@ function OurApps() {
       accentBg: 'rgba(74,158,255,0.08)',
       accentBorder: 'rgba(74,158,255,0.25)',
       features: ['Real-time polling', 'Trending feed', 'Personality insights', 'Streaks & leaderboards'],
-      cta: { label: 'Try Pulse', href: 'https://pulsesphere.app', external: true },
+      cta: { label: 'Try Pulsefire', href: 'https://pulsesphere.app', external: true },
       icon: (
         <svg viewBox="0 0 40 40" className="w-10 h-10" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="40" height="40" rx="10" fill="rgba(74,158,255,0.15)" />
@@ -620,9 +620,9 @@ function OurApps() {
 function Mission() {
   const ref = useFadeIn()
   const stats = [
-    { value: '160+',  label: 'Polls created on Pulse' },
-    { value: '130K+', label: 'Votes cast on Pulse' },
-    { value: 'Free',  label: 'Pulse — always' },
+    { value: '160+',  label: 'Polls created on Pulsefire' },
+    { value: '130K+', label: 'Votes cast on Pulsefire' },
+    { value: 'Free',  label: 'Pulsefire — always' },
   ]
   return (
     <section id="mission" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28" style={{ backgroundColor: '#081022' }}>
@@ -645,7 +645,7 @@ function Mission() {
           </div>
           <div className="space-y-5 text-dim text-base leading-relaxed">
             <p>
-              Social media was built for broadcasting. We built Pulse for listening — a platform where questions get asked, answers get counted, and results are transparent to everyone.
+              Social media was built for broadcasting. We built Pulsefire for listening — a platform where questions get asked, answers get counted, and results are transparent to everyone.
             </p>
             <p>
               Ancestre was built on a different belief: that the most valuable stories in the world sit inside ordinary people, and that most of those stories disappear when they do. We built the infrastructure to capture them — AI-guided, encrypted, and designed to last generations.
@@ -721,7 +721,7 @@ function Company() {
             Public opinion has always existed — but it has never had the right infrastructure. It gets scattered across comment threads, buried in feeds, and hijacked by whoever shouts loudest. PulseSphere LLC was founded in 2026 to change that.
           </p>
           <p>
-            We built Pulse because real-time polling at scale can surface genuine public sentiment — what communities care about, what they disagree on, and where consensus is forming. We built Ancestre because the most important stories in the world are disappearing every day — not because people don't want to share them, but because no one sat down with a mic and asked the right questions.
+            We built Pulsefire because real-time polling at scale can surface genuine public sentiment — what communities care about, what they disagree on, and where consensus is forming. We built Ancestre because the most important stories in the world are disappearing every day — not because people don't want to share them, but because no one sat down with a mic and asked the right questions.
           </p>
           <p>
             We&rsquo;re an independent company headquartered in Everett, Washington. No venture pressure, no advertising business model. We build platforms that earn their place on your phone by being genuinely useful — mobile-first, designed to scale, and built to last.
@@ -813,7 +813,7 @@ function Contact() {
                   <select value={fields.subject} onChange={set('subject')} required className={inputCls} style={{ ...inputStyle, appearance: 'none' }}>
                     <option value="" disabled>Select a subject…</option>
                     <option value="General inquiry">General inquiry</option>
-                    <option value="Pulse — product inquiry">Pulse — product inquiry</option>
+                    <option value="Pulsefire — product inquiry">Pulsefire — product inquiry</option>
                     <option value="Ancestre — early access">Ancestre — early access</option>
                     <option value="Partnership / collaboration">Partnership / collaboration</option>
                     <option value="Press / media">Press / media</option>
@@ -881,8 +881,8 @@ function Footer() {
           <h4 className="text-white font-semibold text-sm mb-4">Products</h4>
           <ul className="space-y-3">
             {[
-              { label: 'Pulse — Features',       section: 'product' },
-              { label: 'Try Pulse Web',           href: 'https://pulsesphere.app' },
+              { label: 'Pulsefire — Features',       section: 'product' },
+              { label: 'Try Pulsefire Web',           href: 'https://pulsesphere.app' },
               { label: 'Ancestre — Coming Soon',  section: 'apps' },
               { label: 'Our Mission',             section: 'mission' },
             ].map((l) => (
@@ -916,7 +916,7 @@ function Footer() {
 
         {/* Download */}
         <div>
-          <h4 className="text-white font-semibold text-sm mb-4">Download Pulse</h4>
+          <h4 className="text-white font-semibold text-sm mb-4">Download Pulsefire</h4>
           <div className="flex flex-col gap-3">
             <a href="#" aria-label="App Store (coming soon)"
               className="flex items-center gap-3 border border-line rounded-xl px-4 py-2.5 hover:border-accent/40 transition-all cursor-not-allowed opacity-70">
