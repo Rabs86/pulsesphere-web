@@ -526,15 +526,7 @@ function OurApps() {
       cta: { label: 'Try Pulsfire', href: 'https://pulsesphere.app', external: true },
       stores: { ios: 'https://apps.apple.com/app/pulsfire/id6765812995', android: null },
       icon: (
-        <svg viewBox="0 0 40 40" className="w-10 h-10" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="40" height="40" rx="10" fill="rgba(74,158,255,0.15)" />
-          <rect x="8"  y="22" width="5" height="12" rx="2" fill="#4A9EFF" />
-          <rect x="17" y="16" width="5" height="18" rx="2" fill="#4A9EFF" opacity="0.8" />
-          <rect x="26" y="10" width="5" height="24" rx="2" fill="#4A9EFF" opacity="0.6" />
-          <circle cx="10.5" cy="19" r="2" fill="#4A9EFF" />
-          <circle cx="19.5" cy="13" r="2" fill="#4A9EFF" opacity="0.8" />
-          <circle cx="28.5" cy="7"  r="2" fill="#4A9EFF" opacity="0.6" />
-        </svg>
+        <Image src="/pulsfire-icon.png" alt="Pulsfire" width={40} height={40} className="w-10 h-10 rounded-xl" />
       ),
     },
     {
@@ -591,13 +583,13 @@ function OurApps() {
                 <div className="mt-auto flex flex-col gap-3">
                   {app.cta.external ? (
                     <a href={app.cta.href} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded-xl transition-opacity hover:opacity-80"
+                      className="self-start inline-flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded-xl transition-opacity hover:opacity-80"
                       style={{ backgroundColor: app.accent, color: '#fff' }}>
                       {app.cta.label} →
                     </a>
                   ) : (
                     <button onClick={() => scrollTo('contact')}
-                      className="inline-flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded-xl border transition-colors hover:opacity-80"
+                      className="self-start inline-flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded-xl border transition-colors hover:opacity-80"
                       style={{ borderColor: app.accentBorder, color: app.accent }}>
                       {app.cta.label} →
                     </button>
