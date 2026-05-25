@@ -28,17 +28,6 @@ function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 }
 
-function SectionLabel({ index, label }: { index: string; label: string }) {
-  return (
-    <div className="hidden xl:flex absolute left-5 top-1/2 -translate-y-1/2 flex-col items-center gap-2 select-none pointer-events-none"
-      style={{ writingMode: 'vertical-rl', transform: 'translateY(-50%) rotate(180deg)' }}>
-      <span className="text-white/10 font-bold text-[10px] tracking-[0.25em] uppercase">{index}</span>
-      <span className="w-px h-8 block" style={{ backgroundColor: 'rgba(255,255,255,0.07)' }} />
-      <span className="text-white/12 font-bold text-[10px] tracking-[0.25em] uppercase">{label}</span>
-    </div>
-  )
-}
-
 function GlowDivider() {
   return (
     <div className="relative w-full h-px">
@@ -69,6 +58,294 @@ function BackToTop() {
     >
       <svg viewBox="0 0 16 16" className="w-4 h-4 fill-white/60"><path d="M8 3.5 2.5 9h2V13h7V9h2L8 3.5z"/></svg>
     </button>
+  )
+}
+
+// ── Scroll Side Panels ─────────────────────────────────────────────────────────
+type SectionId = 'top' | 'product' | 'apps' | 'mission' | 'team' | 'company' | 'contact'
+
+interface SlideData {
+  icon: React.ReactNode
+  heading: string
+  sub: string
+  badge: string
+  cta: { label: string } & ({ external: true; href: string } | { external: false; scrollTo: string })
+}
+
+const pulsfireSlides: Record<SectionId, SlideData> = {
+  top: {
+    icon: <Image src="/pulsfire-icon.png" width={36} height={36} className="rounded-xl" alt="Pulsfire" />,
+    heading: 'Real-time social polling.',
+    sub: 'Ask anything. Vote on everything. See results instantly.',
+    badge: '🟢 Live on App Store',
+    cta: { label: 'Download Free →', href: 'https://apps.apple.com/app/pulsfire/id6765812995', external: true },
+  },
+  product: {
+    icon: '🗳️',
+    heading: '6 features, zero fluff.',
+    sub: 'Polls, trending feed, personality insights, streaks, social graph, and more.',
+    badge: '130K+ votes cast',
+    cta: { label: 'Try Pulsfire →', href: 'https://pulsesphere.app', external: true },
+  },
+  apps: {
+    icon: <Image src="/pulsfire-icon.png" width={36} height={36} className="rounded-xl" alt="Pulsfire" />,
+    heading: 'Live & free.',
+    sub: 'Download on iOS. Android coming soon. Always free — no paywalls.',
+    badge: 'App Store ↗',
+    cta: { label: 'Download Now →', href: 'https://apps.apple.com/app/pulsfire/id6765812995', external: true },
+  },
+  mission: {
+    icon: '📊',
+    heading: 'Always free.',
+    sub: 'No subscription. No ads. Everyone gets a voice, not just paying users.',
+    badge: '100% free forever',
+    cta: { label: 'Try it now →', href: 'https://pulsesphere.app', external: true },
+  },
+  team: {
+    icon: '🔥',
+    heading: 'Build your streak.',
+    sub: 'Vote daily to climb the leaderboard. Are you in the top 100?',
+    badge: 'Streaks & Leaderboards',
+    cta: { label: 'Start voting →', href: 'https://pulsesphere.app', external: true },
+  },
+  company: {
+    icon: '🌐',
+    heading: 'Web + iOS + Android.',
+    sub: 'Pulsfire runs on every platform. Vote from anywhere.',
+    badge: 'iOS live now',
+    cta: { label: 'Try Pulsfire →', href: 'https://pulsesphere.app', external: true },
+  },
+  contact: {
+    icon: <Image src="/pulsfire-icon.png" width={36} height={36} className="rounded-xl" alt="Pulsfire" />,
+    heading: 'Join the conversation.',
+    sub: 'Real questions. Real votes. Real time.',
+    badge: 'Free forever',
+    cta: { label: 'Download Free →', href: 'https://apps.apple.com/app/pulsfire/id6765812995', external: true },
+  },
+}
+
+const ancestreSlides: Record<SectionId, SlideData> = {
+  top: {
+    icon: <Image src="/ancestre-logo.png" width={36} height={36} className="rounded-xl" alt="Ancestre" />,
+    heading: "Your family's stories.",
+    sub: 'AI-guided interviews that preserve the memories that would otherwise disappear.',
+    badge: '✦ Coming 2026',
+    cta: { label: 'Join Waitlist →', external: false, scrollTo: 'contact' },
+  },
+  product: {
+    icon: '🎙️',
+    heading: 'AI interviews.',
+    sub: 'Ancestre asks the questions your family never thought to answer. Voice-recorded, transcribed.',
+    badge: 'Voice → Text → Archive',
+    cta: { label: 'Get Early Access →', external: false, scrollTo: 'contact' },
+  },
+  apps: {
+    icon: <Image src="/ancestre-logo.png" width={36} height={36} className="rounded-xl" alt="Ancestre" />,
+    heading: 'Coming 2026.',
+    sub: 'AI-guided family memory platform. Be the first to access it.',
+    badge: 'Early access open',
+    cta: { label: 'Join Waitlist →', external: false, scrollTo: 'contact' },
+  },
+  mission: {
+    icon: '⏳',
+    heading: 'Stories disappear.',
+    sub: 'Every year, families lose irreplaceable memories. Ancestre was built to stop that.',
+    badge: 'Preserve what matters',
+    cta: { label: 'Get Early Access →', external: false, scrollTo: 'contact' },
+  },
+  team: {
+    icon: '🌳',
+    heading: 'Family tree builder.',
+    sub: 'Map your family across generations. Link stories to faces, dates to places.',
+    badge: 'Coming Soon',
+    cta: { label: 'Join Waitlist →', external: false, scrollTo: 'contact' },
+  },
+  company: {
+    icon: '💌',
+    heading: 'Time capsules.',
+    sub: 'Seal a message today. Let your grandchildren open it in 20 years.',
+    badge: 'A legacy platform',
+    cta: { label: 'Get Early Access →', external: false, scrollTo: 'contact' },
+  },
+  contact: {
+    icon: <Image src="/ancestre-logo.png" width={36} height={36} className="rounded-xl" alt="Ancestre" />,
+    heading: 'Be first to know.',
+    sub: 'Ancestre launches in 2026. Drop your email and we\'ll reach out.',
+    badge: 'Limited early access',
+    cta: { label: 'Get Early Access →', external: false, scrollTo: 'contact' },
+  },
+}
+
+interface PanelCardProps {
+  slide: SlideData
+  productName: string
+  accent: string
+  border: string
+  bg: string
+}
+
+function PanelCard({ slide, productName, accent, border, bg }: PanelCardProps) {
+  const isEmoji = typeof slide.icon === 'string'
+  return (
+    <div
+      className="rounded-2xl border p-4 flex flex-col gap-3 overflow-hidden relative"
+      style={{ borderColor: border, backgroundColor: bg, width: '100%' }}
+    >
+      {/* accent top bar */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '3px',
+          backgroundColor: accent,
+          borderRadius: '1rem 1rem 0 0',
+        }}
+      />
+      {/* icon */}
+      <div className="mt-1">
+        {isEmoji ? (
+          <span className="text-3xl leading-none">{slide.icon}</span>
+        ) : (
+          slide.icon
+        )}
+      </div>
+      {/* product label */}
+      <div
+        className="uppercase font-bold tracking-widest"
+        style={{ fontSize: '9px', color: accent }}
+      >
+        {productName}
+      </div>
+      {/* heading */}
+      <div className="text-white font-bold text-[13px] leading-snug">{slide.heading}</div>
+      {/* sub */}
+      <div className="text-white/55 text-[11px] leading-relaxed">{slide.sub}</div>
+      {/* badge */}
+      <div
+        className="self-start uppercase tracking-wide px-2 py-0.5 rounded-full text-[9px] font-semibold"
+        style={{ backgroundColor: `${accent}26`, color: accent }}
+      >
+        {slide.badge}
+      </div>
+      {/* cta */}
+      {slide.cta.external ? (
+        <a
+          href={slide.cta.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full text-center text-white font-bold text-[11px] py-2 rounded-xl block"
+          style={{ backgroundColor: accent }}
+        >
+          {slide.cta.label}
+        </a>
+      ) : (
+        <button
+          onClick={() => scrollTo((slide.cta as { external: false; scrollTo: string }).scrollTo)}
+          className="w-full text-center text-white font-bold text-[11px] py-2 rounded-xl"
+          style={{ backgroundColor: accent }}
+        >
+          {slide.cta.label}
+        </button>
+      )}
+    </div>
+  )
+}
+
+function ScrollSidePanels() {
+  const sectionIds: SectionId[] = ['product', 'apps', 'mission', 'team', 'company', 'contact']
+
+  const [activeSection, setActiveSection] = useState<SectionId>('top')
+  const [displayedSection, setDisplayedSection] = useState<SectionId>('top')
+  const [cardOpacity, setCardOpacity] = useState(1)
+  const [panelOpacity, setPanelOpacity] = useState(0)
+
+  // scroll-based active section + panel show/hide
+  useEffect(() => {
+    function onScroll() {
+      const y = window.scrollY
+      // show/hide panels
+      setPanelOpacity(y >= 200 ? 1 : 0)
+
+      // find active section
+      const mid = window.innerHeight / 2
+      let found: SectionId = 'top'
+      for (const id of sectionIds) {
+        const el = document.getElementById(id)
+        if (!el) continue
+        const rect = el.getBoundingClientRect()
+        if (rect.top <= mid && rect.bottom >= mid) {
+          found = id
+          break
+        }
+      }
+      setActiveSection(found)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // fade out → update content → fade in when activeSection changes
+  useEffect(() => {
+    if (activeSection === displayedSection) return
+    setCardOpacity(0)
+    const timer = setTimeout(() => {
+      setDisplayedSection(activeSection)
+      setCardOpacity(1)
+    }, 180)
+    return () => clearTimeout(timer)
+  }, [activeSection]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const pulsfireSlide = pulsfireSlides[displayedSection]
+  const ancestreSlide = ancestreSlides[displayedSection]
+
+  const baseStyle: React.CSSProperties = {
+    position: 'fixed',
+    zIndex: 40,
+    flexDirection: 'column',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    opacity: panelOpacity,
+    transition: 'opacity 0.4s ease',
+    width: '148px',
+  }
+
+  return (
+    <>
+      {/* Left panel — Pulsfire */}
+      <div
+        className="hidden 2xl:flex"
+        style={{ ...baseStyle, left: 'calc(50% - 740px)' }}
+      >
+        <div style={{ opacity: cardOpacity, transition: 'opacity 0.18s ease' }}>
+          <PanelCard
+            slide={pulsfireSlide}
+            productName="Pulsfire"
+            accent="#4A9EFF"
+            border="rgba(74,158,255,0.2)"
+            bg="rgba(74,158,255,0.06)"
+          />
+        </div>
+      </div>
+
+      {/* Right panel — Ancestre */}
+      <div
+        className="hidden 2xl:flex"
+        style={{ ...baseStyle, right: 'calc(50% - 740px)', left: 'auto' }}
+      >
+        <div style={{ opacity: cardOpacity, transition: 'opacity 0.18s ease' }}>
+          <PanelCard
+            slide={ancestreSlide}
+            productName="Ancestre"
+            accent="#C8782A"
+            border="rgba(200,120,42,0.2)"
+            bg="rgba(200,120,42,0.06)"
+          />
+        </div>
+      </div>
+    </>
   )
 }
 
@@ -307,7 +584,6 @@ function Product() {
   const ref = useFadeIn()
   return (
     <section id="product" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28 relative" style={{ backgroundColor: '#050816' }}>
-      <SectionLabel index="01" label="Product" />
       <div className="max-w-6xl mx-auto px-6">
 
         <div className="text-center mb-14">
@@ -561,7 +837,6 @@ function OurApps() {
 
   return (
     <section id="apps" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28 relative" style={{ backgroundColor: '#050816' }}>
-      <SectionLabel index="02" label="Our Apps" />
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Our Apps</div>
@@ -654,7 +929,6 @@ function Mission() {
   ]
   return (
     <section id="mission" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28 relative" style={{ backgroundColor: '#081022' }}>
-      <SectionLabel index="03" label="Mission" />
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
@@ -694,7 +968,6 @@ function Team() {
   const ref = useFadeIn()
   return (
     <section id="team" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28 relative" style={{ backgroundColor: '#050816' }}>
-      <SectionLabel index="04" label="Team" />
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">The Team</div>
@@ -741,7 +1014,6 @@ function Company() {
   const ref = useFadeIn()
   return (
     <section id="company" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28 relative" style={{ backgroundColor: '#081022' }}>
-      <SectionLabel index="05" label="Company" />
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">The Company</div>
@@ -812,7 +1084,6 @@ function Contact() {
 
   return (
     <section id="contact" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28 relative" style={{ backgroundColor: '#050816' }}>
-      <SectionLabel index="06" label="Contact" />
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Contact</div>
@@ -1035,6 +1306,7 @@ export default function Home() {
       <GlowDivider />
       <Contact />
       <Footer />
+      <ScrollSidePanels />
       <BackToTop />
     </main>
   )
