@@ -28,6 +28,17 @@ function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 }
 
+function SectionLabel({ index, label }: { index: string; label: string }) {
+  return (
+    <div className="hidden xl:flex absolute left-5 top-1/2 -translate-y-1/2 flex-col items-center gap-2 select-none pointer-events-none"
+      style={{ writingMode: 'vertical-rl', transform: 'translateY(-50%) rotate(180deg)' }}>
+      <span className="text-white/10 font-bold text-[10px] tracking-[0.25em] uppercase">{index}</span>
+      <span className="w-px h-8 block" style={{ backgroundColor: 'rgba(255,255,255,0.07)' }} />
+      <span className="text-white/12 font-bold text-[10px] tracking-[0.25em] uppercase">{label}</span>
+    </div>
+  )
+}
+
 function GlowDivider() {
   return (
     <div className="relative w-full h-px">
@@ -295,7 +306,8 @@ function Stats() {
 function Product() {
   const ref = useFadeIn()
   return (
-    <section id="product" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28" style={{ backgroundColor: '#050816' }}>
+    <section id="product" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28 relative" style={{ backgroundColor: '#050816' }}>
+      <SectionLabel index="01" label="Product" />
       <div className="max-w-6xl mx-auto px-6">
 
         <div className="text-center mb-14">
@@ -548,7 +560,8 @@ function OurApps() {
   ]
 
   return (
-    <section id="apps" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28" style={{ backgroundColor: '#050816' }}>
+    <section id="apps" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28 relative" style={{ backgroundColor: '#050816' }}>
+      <SectionLabel index="02" label="Our Apps" />
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Our Apps</div>
@@ -640,7 +653,8 @@ function Mission() {
     { value: '2026',  label: 'Ancestre — launching' },
   ]
   return (
-    <section id="mission" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28" style={{ backgroundColor: '#081022' }}>
+    <section id="mission" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28 relative" style={{ backgroundColor: '#081022' }}>
+      <SectionLabel index="03" label="Mission" />
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
@@ -679,7 +693,8 @@ function Mission() {
 function Team() {
   const ref = useFadeIn()
   return (
-    <section id="team" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28" style={{ backgroundColor: '#050816' }}>
+    <section id="team" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28 relative" style={{ backgroundColor: '#050816' }}>
+      <SectionLabel index="04" label="Team" />
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">The Team</div>
@@ -725,7 +740,8 @@ function Team() {
 function Company() {
   const ref = useFadeIn()
   return (
-    <section id="company" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28" style={{ backgroundColor: '#081022' }}>
+    <section id="company" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28 relative" style={{ backgroundColor: '#081022' }}>
+      <SectionLabel index="05" label="Company" />
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">The Company</div>
@@ -795,7 +811,8 @@ function Contact() {
   const inputStyle = { backgroundColor: 'rgba(255,255,255,0.04)' }
 
   return (
-    <section id="contact" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28" style={{ backgroundColor: '#050816' }}>
+    <section id="contact" ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-28 relative" style={{ backgroundColor: '#050816' }}>
+      <SectionLabel index="06" label="Contact" />
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
           <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Contact</div>

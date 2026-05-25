@@ -8,6 +8,8 @@ html {
 
 body {
   background-color: #050816;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 28px 28px;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
 }
