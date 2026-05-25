@@ -106,7 +106,7 @@ function Nav() {
           <div className="flex items-center gap-3">
             <a href="https://pulsesphere.app" target="_blank" rel="noopener noreferrer"
               className="hidden sm:inline-flex bg-accent text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-500 transition-colors">
-              Try Pulsefire →
+              Try Pulsfire →
             </a>
             <button className="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5"
               onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
@@ -134,7 +134,7 @@ function Nav() {
               <a href="https://pulsesphere.app" target="_blank" rel="noopener noreferrer"
                 className="bg-accent text-white px-8 py-3 rounded-xl font-bold text-base hover:bg-blue-500 transition-colors"
                 onClick={() => setMenuOpen(false)}>
-                Try Pulsefire →
+                Try Pulsfire →
               </a>
               <button onClick={() => handleNav('apps')}
                 className="border border-amber-500/40 text-amber-400 px-8 py-3 rounded-xl font-bold text-base hover:bg-amber-400/10 transition-colors">
@@ -229,16 +229,16 @@ function Hero() {
           </button>
           <a href="https://pulsesphere.app" target="_blank" rel="noopener noreferrer"
             className="border border-line text-white px-6 md:px-8 py-3.5 md:py-4 rounded-xl font-bold text-base hover:border-accent/50 transition-colors">
-            Try Pulsefire Live →
+            Try Pulsfire Live →
           </a>
         </div>
 
         {/* App teasers */}
         <div className="mt-14 grid sm:grid-cols-2 gap-4 max-w-2xl">
-          {/* Pulsefire */}
+          {/* Pulsfire */}
           <div className="rounded-2xl border border-accent/20 p-5" style={{ backgroundColor: 'rgba(74,158,255,0.05)' }}>
             <div className="flex items-center justify-between mb-3">
-              <span className="text-accent text-sm font-bold uppercase tracking-wider">Pulsefire</span>
+              <span className="text-accent text-sm font-bold uppercase tracking-wider">Pulsfire</span>
               <span className="text-xs font-semibold px-2 py-0.5 rounded-full text-green-400 bg-green-400/10">Live</span>
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-4">
@@ -272,7 +272,7 @@ function Stats() {
   const items = [
     { label: 'Headquarters',      value: 'Everett, WA'    },
     { label: 'Founded',           value: '2026'            },
-    { label: 'Pulsefire',         value: 'Live & Growing'  },
+    { label: 'Pulsfire',         value: 'Live & Growing'  },
     { label: 'Ancestre',          value: 'Coming Soon'     },
   ]
   return (
@@ -291,7 +291,7 @@ function Stats() {
   )
 }
 
-// ── Product (Pulsefire features) ───────────────────────────────────────────────────
+// ── Product (Pulsfire features) ───────────────────────────────────────────────────
 function Product() {
   const ref = useFadeIn()
   return (
@@ -299,8 +299,8 @@ function Product() {
       <div className="max-w-6xl mx-auto px-6">
 
         <div className="text-center mb-14">
-          <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Pulsefire — The Product</div>
-          <h2 className="font-display text-3xl md:text-5xl font-black text-white mb-4">What Pulsefire Does</h2>
+          <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Pulsfire — The Product</div>
+          <h2 className="font-display text-3xl md:text-5xl font-black text-white mb-4">What Pulsfire Does</h2>
           <p className="text-dim text-lg max-w-2xl mx-auto leading-relaxed">
             A full-featured social polling platform built for engagement, transparency, and real-time discovery.
           </p>
@@ -463,7 +463,7 @@ function Product() {
             </div>
             <div className="px-5 pt-4 pb-5 border-t border-white/8">
               <h3 className="font-bold text-base mb-1.5 text-white">Personality insights</h3>
-              <p className="text-dim text-sm leading-relaxed">Your votes reveal your worldview. Pulsefire builds a live opinion profile — showing where you stand, how rare your views are, and what kind of thinker you are.</p>
+              <p className="text-dim text-sm leading-relaxed">Your votes reveal your worldview. Pulsfire builds a live opinion profile — showing where you stand, how rare your views are, and what kind of thinker you are.</p>
             </div>
           </div>
 
@@ -477,9 +477,9 @@ function Product() {
 function AppShowcase() {
   const ref = useFadeIn()
   const screens = [
-    { src: '/screenshot-discover.png', alt: 'Pulsefire Discover screen', label: 'Browse by Topic' },
-    { src: '/screenshot-feed.png',     alt: 'Pulsefire home feed',        label: 'Live Feed', featured: true },
-    { src: '/screenshot-vote.png',     alt: 'Pulsefire quick-vote',       label: 'Quick Vote' },
+    { src: '/screenshot-discover.png', alt: 'Pulsfire Discover screen', label: 'Browse by Topic' },
+    { src: '/screenshot-feed.png',     alt: 'Pulsfire home feed',        label: 'Live Feed', featured: true },
+    { src: '/screenshot-vote.png',     alt: 'Pulsfire quick-vote',       label: 'Quick Vote' },
   ]
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className="fade-section py-16 md:py-24 overflow-hidden" style={{ backgroundColor: '#050816' }}>
@@ -487,8 +487,8 @@ function AppShowcase() {
         style={{ background: 'radial-gradient(ellipse 80% 80% at 50% 50%, rgba(74,158,255,0.08) 0%, transparent 100%)' }} />
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
-          <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Pulsefire — The App</div>
-          <h2 className="font-display text-3xl md:text-5xl font-black text-white mb-4">See Pulsefire in Action</h2>
+          <div className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Pulsfire — The App</div>
+          <h2 className="font-display text-3xl md:text-5xl font-black text-white mb-4">See Pulsfire in Action</h2>
           <p className="text-dim text-lg max-w-xl mx-auto">Real questions. Real votes. Real time.</p>
         </div>
         <div className="flex items-end justify-center gap-4 md:gap-6">
@@ -514,7 +514,7 @@ function OurApps() {
   const ref = useFadeIn()
   const apps = [
     {
-      name: 'Pulsefire',
+      name: 'Pulsfire',
       tagline: 'Vote on anything. See what the world thinks.',
       description: 'A real-time social polling platform where questions become conversations and votes build identity. Ask anything, vote on everything, and discover exactly where you — and everyone else — stands.',
       status: 'Live',
@@ -523,7 +523,7 @@ function OurApps() {
       accentBg: 'rgba(74,158,255,0.08)',
       accentBorder: 'rgba(74,158,255,0.25)',
       features: ['Real-time polling', 'Trending feed', 'Personality insights', 'Streaks & leaderboards'],
-      cta: { label: 'Try Pulsefire', href: 'https://pulsesphere.app', external: true },
+      cta: { label: 'Try Pulsfire', href: 'https://pulsesphere.app', external: true },
       stores: { ios: 'https://apps.apple.com/app/pulsfire/id6765812995', android: null },
       icon: (
         <svg viewBox="0 0 40 40" className="w-10 h-10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -643,8 +643,8 @@ function OurApps() {
 function Mission() {
   const ref = useFadeIn()
   const stats = [
-    { value: '130K+', label: 'Votes cast on Pulsefire' },
-    { value: 'Free',  label: 'Pulsefire — always' },
+    { value: '130K+', label: 'Votes cast on Pulsfire' },
+    { value: 'Free',  label: 'Pulsfire — always' },
     { value: '2026',  label: 'Ancestre — launching' },
   ]
   return (
@@ -668,7 +668,7 @@ function Mission() {
           </div>
           <div className="space-y-5 text-dim text-base leading-relaxed">
             <p>
-              Social media was built for broadcasting. We built Pulsefire for listening — a platform where questions get asked, answers get counted, and results are transparent to everyone.
+              Social media was built for broadcasting. We built Pulsfire for listening — a platform where questions get asked, answers get counted, and results are transparent to everyone.
             </p>
             <p>
               Ancestre was built on a different belief: that the most valuable stories in the world sit inside ordinary people, and that most of those stories disappear when they do. We built the infrastructure to capture them — AI-guided, encrypted, and designed to last generations.
@@ -744,7 +744,7 @@ function Company() {
             PulseSphere LLC was founded in 2026 on a simple premise: the most important human experiences — our opinions, our disagreements, our memories, our stories — deserve better infrastructure than what exists today.
           </p>
           <p>
-            <strong className="text-white/80">Pulsefire</strong> is our answer to the problem of public opinion — real-time polling that surfaces genuine sentiment at scale, giving everyone a voice and a result they can actually see. <strong className="text-white/80">Ancestre</strong> is our answer to a quieter crisis: the stories inside ordinary families disappearing every day, not because people do not want to share them, but because no one ever sat down with a microphone and asked the right questions.
+            <strong className="text-white/80">Pulsfire</strong> is our answer to the problem of public opinion — real-time polling that surfaces genuine sentiment at scale, giving everyone a voice and a result they can actually see. <strong className="text-white/80">Ancestre</strong> is our answer to a quieter crisis: the stories inside ordinary families disappearing every day, not because people do not want to share them, but because no one ever sat down with a microphone and asked the right questions.
           </p>
           <p>
             PulseSphere is an independent company headquartered in Everett, Washington. No venture pressure, no advertising business model. We build platforms that earn their place by being genuinely useful — mobile-first, designed to scale, and built to last.
@@ -755,7 +755,7 @@ function Company() {
             { label: 'Founded',       value: '2026'                },
             { label: 'Headquarters',  value: 'Everett, WA'         },
             { label: 'Platforms',     value: 'iOS · Android · Web' },
-            { label: 'Products',      value: 'Pulsefire · Ancestre' },
+            { label: 'Products',      value: 'Pulsfire · Ancestre' },
           ].map((f) => (
             <div key={f.label} className="border border-line rounded-xl px-5 py-4 text-center" style={{ backgroundColor: '#0a1428' }}>
               <div className="text-white font-bold text-sm mb-1">{f.value}</div>
@@ -836,7 +836,7 @@ function Contact() {
                   <select value={fields.subject} onChange={set('subject')} required className={inputCls} style={{ ...inputStyle, appearance: 'none' }}>
                     <option value="" disabled>Select a subject…</option>
                     <option value="General inquiry">General inquiry</option>
-                    <option value="Pulsefire — product inquiry">Pulsefire — product inquiry</option>
+                    <option value="Pulsfire — product inquiry">Pulsfire — product inquiry</option>
                     <option value="Ancestre — early access">Ancestre — early access</option>
                     <option value="Partnership / collaboration">Partnership / collaboration</option>
                     <option value="Press / media">Press / media</option>
@@ -904,8 +904,8 @@ function Footer() {
           <h4 className="text-white font-semibold text-sm mb-4">Products</h4>
           <ul className="space-y-3">
             {[
-              { label: 'Pulsefire — Features',       section: 'product' },
-              { label: 'Try Pulsefire Web',           href: 'https://pulsesphere.app' },
+              { label: 'Pulsfire — Features',       section: 'product' },
+              { label: 'Try Pulsfire Web',           href: 'https://pulsesphere.app' },
               { label: 'Ancestre — Coming Soon',  section: 'apps' },
               { label: 'Our Mission',             section: 'mission' },
             ].map((l) => (
@@ -942,7 +942,7 @@ function Footer() {
           <h4 className="text-white font-semibold text-sm mb-4">Download Our Apps</h4>
           <div className="flex flex-col gap-5">
             {[
-              { name: 'Pulsefire', accentBorder: 'rgba(74,158,255,0.3)', stores: { ios: 'https://apps.apple.com/app/pulsfire/id6765812995', android: null } },
+              { name: 'Pulsfire', accentBorder: 'rgba(74,158,255,0.3)', stores: { ios: 'https://apps.apple.com/app/pulsfire/id6765812995', android: null } },
               { name: 'Ancestre',  accentBorder: 'rgba(200,120,42,0.3)',  stores: { ios: null, android: null } },
             ].map((app) => (
               <div key={app.name}>

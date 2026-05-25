@@ -13,12 +13,12 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: 'PulseSphere LLC — Apps That Change How People Connect',
   description:
-    'PulseSphere LLC is an independent technology company headquartered in Everett, Washington, building Pulsefire (real-time social polling) and Ancestre (AI-guided family memory preservation).',
-  keywords: ['PulseSphere', 'Pulsefire', 'Ancestre', 'social polling', 'family memory', 'mobile app', 'Washington'],
+    'PulseSphere LLC is an independent technology company headquartered in Everett, Washington, building Pulsfire (real-time social polling) and Ancestre (AI-guided family memory preservation).',
+  keywords: ['PulseSphere', 'Pulsfire', 'Ancestre', 'social polling', 'family memory', 'mobile app', 'Washington'],
   metadataBase: new URL('https://company.pulsesphere.app'),
   openGraph: {
     title: 'PulseSphere LLC — Apps That Change How People Connect',
-    description: 'Building Pulsefire and Ancestre — mobile-first platforms that solve meaningful human problems at scale.',
+    description: 'Building Pulsfire and Ancestre — mobile-first platforms that solve meaningful human problems at scale.',
     url: 'https://company.pulsesphere.app',
     siteName: 'PulseSphere LLC',
     type: 'website',

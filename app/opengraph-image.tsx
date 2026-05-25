@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
-export const alt = "PulseSphere — Building Pulsefire & Ancestre"
+export const alt = "PulseSphere — Building Pulsfire & Ancestre"
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -156,7 +156,7 @@ export default function Image() {
               }}
             >
               <div style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#4a9eff', display: 'flex' }} />
-              <span style={{ color: '#4a9eff', fontSize: '16px', fontWeight: 700 }}>Pulsefire — Live</span>
+              <span style={{ color: '#4a9eff', fontSize: '16px', fontWeight: 700 }}>Pulsfire — Live</span>
             </div>
             <div
               style={{
