@@ -524,6 +524,7 @@ function OurApps() {
       accentBorder: 'rgba(74,158,255,0.25)',
       features: ['Real-time polling', 'Trending feed', 'Personality insights', 'Streaks & leaderboards'],
       cta: { label: 'Try Pulsefire', href: 'https://pulsesphere.app', external: true },
+      stores: { ios: 'https://apps.apple.com/app/pulsfire/id6765812995', android: null },
       icon: (
         <svg viewBox="0 0 40 40" className="w-10 h-10" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="40" height="40" rx="10" fill="rgba(74,158,255,0.15)" />
@@ -547,6 +548,7 @@ function OurApps() {
       accentBorder: 'rgba(200,120,42,0.25)',
       features: ['AI-guided interviews', 'Voice transcription', 'Family tree builder', 'Time capsules'],
       cta: { label: 'Get Early Access', href: '#contact', external: false },
+      stores: { ios: null, android: null },
       icon: (
         <Image src="/ancestre-logo.png" alt="Ancestre" width={40} height={40} className="w-10 h-10 rounded-xl" />
       ),
@@ -603,13 +605,22 @@ function OurApps() {
                   {/* Store badges */}
                   <div className="flex gap-2">
                     {[
-                      { label: 'App Store', icon: <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white flex-shrink-0"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> },
-                      { label: 'Google Play', icon: <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white flex-shrink-0"><path d="M3.18 23.76c.3.17.64.24.99.2l12.3-7.1-2.68-2.68-10.61 9.58zM.5 1.26C.19 1.6 0 2.12 0 2.79v18.42c0 .67.19 1.19.51 1.52l.08.08 10.32-10.32v-.24L.58 1.18.5 1.26zM20.49 10.37l-2.9-1.67-3.01 3.01 3.01 3.01 2.92-1.68c.83-.48.83-1.26-.02-1.67zM3.18.24l12.41 7.16-2.68 2.68L2.19.17c.32-.23.69-.1.99.07z"/></svg> },
-                    ].map((store) => (
+                      { label: 'App Store',   href: app.stores.ios,     icon: <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white flex-shrink-0"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> },
+                      { label: 'Google Play', href: app.stores.android,  icon: <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white flex-shrink-0"><path d="M3.18 23.76c.3.17.64.24.99.2l12.3-7.1-2.68-2.68-10.61 9.58zM.5 1.26C.19 1.6 0 2.12 0 2.79v18.42c0 .67.19 1.19.51 1.52l.08.08 10.32-10.32v-.24L.58 1.18.5 1.26zM20.49 10.37l-2.9-1.67-3.01 3.01 3.01 3.01 2.92-1.68c.83-.48.83-1.26-.02-1.67zM3.18.24l12.41 7.16-2.68 2.68L2.19.17c.32-.23.69-.1.99.07z"/></svg> },
+                    ].map((store) => store.href ? (
+                      <a key={store.label} href={store.href} target="_blank" rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 border rounded-lg px-3 py-1.5 hover:opacity-80 transition-opacity"
+                        style={{ borderColor: app.accentBorder }}>
+                        {store.icon}
+                        <div>
+                          <div className="text-white/40 text-[8px] uppercase tracking-wide leading-none">Download</div>
+                          <div className="text-white/70 text-[11px] font-semibold leading-none mt-0.5">{store.label}</div>
+                        </div>
+                      </a>
+                    ) : (
                       <div key={store.label}
                         className="flex items-center gap-1.5 border rounded-lg px-3 py-1.5 cursor-not-allowed opacity-50"
-                        style={{ borderColor: app.accentBorder }}
-                        title="Coming soon">
+                        style={{ borderColor: app.accentBorder }} title="Coming soon">
                         {store.icon}
                         <div>
                           <div className="text-white/40 text-[8px] uppercase tracking-wide leading-none">Soon</div>
@@ -931,20 +942,29 @@ function Footer() {
           <h4 className="text-white font-semibold text-sm mb-4">Download Our Apps</h4>
           <div className="flex flex-col gap-5">
             {[
-              { name: 'Pulsefire', accentBorder: 'rgba(74,158,255,0.3)' },
-              { name: 'Ancestre',  accentBorder: 'rgba(200,120,42,0.3)' },
+              { name: 'Pulsefire', accentBorder: 'rgba(74,158,255,0.3)', stores: { ios: 'https://apps.apple.com/app/pulsfire/id6765812995', android: null } },
+              { name: 'Ancestre',  accentBorder: 'rgba(200,120,42,0.3)',  stores: { ios: null, android: null } },
             ].map((app) => (
               <div key={app.name}>
                 <p className="text-white/40 text-xs font-medium mb-2">{app.name}</p>
                 <div className="flex flex-col gap-2">
                   {[
-                    { label: 'App Store',    icon: <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white flex-shrink-0"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> },
-                    { label: 'Google Play', icon: <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white flex-shrink-0"><path d="M3.18 23.76c.3.17.64.24.99.2l12.3-7.1-2.68-2.68-10.61 9.58zM.5 1.26C.19 1.6 0 2.12 0 2.79v18.42c0 .67.19 1.19.51 1.52l.08.08 10.32-10.32v-.24L.58 1.18.5 1.26zM20.49 10.37l-2.9-1.67-3.01 3.01 3.01 3.01 2.92-1.68c.83-.48.83-1.26-.02-1.67zM3.18.24l12.41 7.16-2.68 2.68L2.19.17c.32-.23.69-.1.99.07z"/></svg> },
-                  ].map((store) => (
+                    { label: 'App Store',   href: app.stores.ios,     icon: <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white flex-shrink-0"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> },
+                    { label: 'Google Play', href: app.stores.android,  icon: <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white flex-shrink-0"><path d="M3.18 23.76c.3.17.64.24.99.2l12.3-7.1-2.68-2.68-10.61 9.58zM.5 1.26C.19 1.6 0 2.12 0 2.79v18.42c0 .67.19 1.19.51 1.52l.08.08 10.32-10.32v-.24L.58 1.18.5 1.26zM20.49 10.37l-2.9-1.67-3.01 3.01 3.01 3.01 2.92-1.68c.83-.48.83-1.26-.02-1.67zM3.18.24l12.41 7.16-2.68 2.68L2.19.17c.32-.23.69-.1.99.07z"/></svg> },
+                  ].map((store) => store.href ? (
+                    <a key={store.label} href={store.href} target="_blank" rel="noopener noreferrer"
+                      className="flex items-center gap-3 border rounded-xl px-3 py-2 hover:opacity-80 transition-opacity"
+                      style={{ borderColor: app.accentBorder }}>
+                      {store.icon}
+                      <div>
+                        <div className="text-white/40 text-[9px] leading-none mb-0.5 uppercase tracking-wide">Download on</div>
+                        <div className="text-white font-semibold text-xs leading-none">{store.label}</div>
+                      </div>
+                    </a>
+                  ) : (
                     <div key={store.label}
                       className="flex items-center gap-3 border rounded-xl px-3 py-2 cursor-not-allowed opacity-60"
-                      style={{ borderColor: app.accentBorder }}
-                      title="Coming soon to stores">
+                      style={{ borderColor: app.accentBorder }} title="Coming soon">
                       {store.icon}
                       <div>
                         <div className="text-white/40 text-[9px] leading-none mb-0.5 uppercase tracking-wide">Coming Soon</div>
