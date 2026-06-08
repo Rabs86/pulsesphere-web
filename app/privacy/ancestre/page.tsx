@@ -8,19 +8,49 @@ export const metadata: Metadata = {
 
 const LAST_UPDATED = 'June 8, 2026'
 
+// Ancestre warm amber/sepia palette
+const A = {
+  bg: '#0F0B06',
+  surface: '#251C12',
+  border: '#2A1E12',
+  borderLight: '#3A2A18',
+  accent: '#C8832A',
+  accentLight: '#E8A84A',
+  text: '#F0E4CC',
+  textSub: '#9A7040',
+  dim: '#8A6030',
+}
+
 export default function AncestrePrivacyPage() {
   return (
-    <div style={{ backgroundColor: '#050816', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: A.bg, minHeight: '100vh' }}>
       <div className="max-w-3xl mx-auto px-6 py-16 pb-24">
 
-        <Link href="/" className="inline-flex items-center gap-2 text-sm mb-10 text-white/40 hover:text-white/80 transition-colors">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-sm mb-10 transition-colors"
+          style={{ color: A.dim }}
+          onMouseOver={e => (e.currentTarget.style.color = A.textSub)}
+          onMouseOut={e => (e.currentTarget.style.color = A.dim)}
+        >
           ← PulseSphere LLC
         </Link>
 
-        <h1 className="text-3xl font-extrabold text-white mb-1">Ancestre Privacy Policy</h1>
-        <p className="text-sm mb-8" style={{ color: '#888' }}>Last updated: {LAST_UPDATED}</p>
+        {/* Header */}
+        <div className="flex items-center gap-3 mb-1">
+          <div
+            className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+            style={{ backgroundColor: A.surface, border: `1px solid ${A.borderLight}` }}
+          >
+            <span style={{ fontSize: 18 }}>🌿</span>
+          </div>
+          <h1 className="text-3xl font-extrabold" style={{ color: A.text }}>
+            Ancestre Privacy Policy
+          </h1>
+        </div>
+        <p className="text-sm mb-8" style={{ color: A.dim }}>Last updated: {LAST_UPDATED}</p>
 
-        <p className="text-base leading-relaxed mb-2" style={{ color: '#aaa' }}>
+        <p className="text-base leading-relaxed mb-2" style={{ color: A.textSub }}>
           PulseSphere LLC (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;) operates the Ancestre mobile application
           (the &ldquo;Service&rdquo;). Ancestre helps families record, preserve, and share the life stories of their loved ones.
           This policy explains what data we collect, how we use it, and your rights as a user.
@@ -50,7 +80,7 @@ export default function AncestrePrivacyPage() {
         </Section>
 
         <Section title="3. How We Share Your Information">
-          <p className="text-sm leading-relaxed mb-3" style={{ color: '#aaa' }}>
+          <p className="text-sm leading-relaxed mb-3" style={{ color: A.textSub }}>
             We do not sell your personal data. We share data only in these limited circumstances:
           </p>
           <Item label="Family members you invite">When you invite someone to join your family archive, they gain access to stories and family member data according to the role you assign (viewer, member, or admin).</Item>
@@ -61,7 +91,7 @@ export default function AncestrePrivacyPage() {
         </Section>
 
         <Section title="4. Audio Recordings and Encryption">
-          <p className="text-sm leading-relaxed mb-3" style={{ color: '#aaa' }}>
+          <p className="text-sm leading-relaxed mb-3" style={{ color: A.textSub }}>
             Audio recordings are a core part of Ancestre. We take their privacy seriously:
           </p>
           <Item label="Transmission security">All audio is transmitted over TLS-encrypted connections. Audio files are stored in access-controlled cloud storage and are not publicly accessible.</Item>
@@ -76,7 +106,7 @@ export default function AncestrePrivacyPage() {
         </Section>
 
         <Section title="6. Data Retention">
-          <p className="text-sm leading-relaxed" style={{ color: '#aaa' }}>
+          <p className="text-sm leading-relaxed" style={{ color: A.textSub }}>
             We retain your account data, family archive, and recordings for as long as your account is active.
             If you delete your account, your personal data — including all audio recordings, photos, family
             member profiles, and stories — is permanently deleted within 30 days. Aggregate, anonymised
@@ -86,7 +116,7 @@ export default function AncestrePrivacyPage() {
         </Section>
 
         <Section title="7. Security">
-          <p className="text-sm leading-relaxed" style={{ color: '#aaa' }}>
+          <p className="text-sm leading-relaxed" style={{ color: A.textSub }}>
             All data is encrypted in transit using TLS. Authentication is handled by Supabase Auth using
             industry-standard practices — passwords are hashed and never stored in plain text. We apply
             row-level security policies in our database so users can only access data they are authorised
@@ -96,13 +126,13 @@ export default function AncestrePrivacyPage() {
         </Section>
 
         <Section title="8. Children&rsquo;s Privacy">
-          <p className="text-sm leading-relaxed" style={{ color: '#aaa' }}>
+          <p className="text-sm leading-relaxed" style={{ color: A.textSub }}>
             Ancestre is not directed to children under 13. Users must be at least 13 years old to create
             an account. Family member profiles for minors may be created by a parent or guardian within
             a family archive. We do not knowingly collect personal information directly from children
             under 13. If you believe a child under 13 has created an account independently, contact us
             at{' '}
-            <a href="mailto:privacy@pulsesphere.app" className="text-blue-400 hover:underline">privacy@pulsesphere.app</a>
+            <a href="mailto:privacy@pulsesphere.app" style={{ color: A.accent }}>privacy@pulsesphere.app</a>
             {' '}and we will delete it promptly.
           </p>
         </Section>
@@ -114,25 +144,25 @@ export default function AncestrePrivacyPage() {
           <Item label="Data portability">Request an export of your archive data in a machine-readable format.</Item>
           <Item label="Withdraw consent">Revoke microphone, camera, or notification permissions at any time in your device Settings.</Item>
           <Item label="Opt out of notifications">Adjust notification preferences at any time in Settings → Notifications.</Item>
-          <p className="text-sm leading-relaxed mt-3" style={{ color: '#aaa' }}>
+          <p className="text-sm leading-relaxed mt-3" style={{ color: A.textSub }}>
             To exercise any of these rights, email us at{' '}
-            <a href="mailto:privacy@pulsesphere.app" className="text-blue-400 hover:underline">privacy@pulsesphere.app</a>.
+            <a href="mailto:privacy@pulsesphere.app" style={{ color: A.accent }}>privacy@pulsesphere.app</a>.
             We will respond within 30 days.
           </p>
         </Section>
 
         <Section title="10. California Residents (CCPA)">
-          <p className="text-sm leading-relaxed" style={{ color: '#aaa' }}>
+          <p className="text-sm leading-relaxed" style={{ color: A.textSub }}>
             California residents have the right to know what personal information we collect, to request
             deletion, and to opt out of the sale of personal information. We do not sell personal
             information. To submit a request, email{' '}
-            <a href="mailto:privacy@pulsesphere.app" className="text-blue-400 hover:underline">privacy@pulsesphere.app</a>
+            <a href="mailto:privacy@pulsesphere.app" style={{ color: A.accent }}>privacy@pulsesphere.app</a>
             {' '}with &ldquo;CCPA Request&rdquo; in the subject line.
           </p>
         </Section>
 
         <Section title="11. International Data Transfers">
-          <p className="text-sm leading-relaxed" style={{ color: '#aaa' }}>
+          <p className="text-sm leading-relaxed" style={{ color: A.textSub }}>
             Ancestre is operated from the United States. If you access the Service from outside the United
             States, your data will be transferred to and processed in the United States. By using the
             Service, you consent to this transfer. We take reasonable steps to ensure your data is
@@ -141,7 +171,7 @@ export default function AncestrePrivacyPage() {
         </Section>
 
         <Section title="12. Changes to This Policy">
-          <p className="text-sm leading-relaxed" style={{ color: '#aaa' }}>
+          <p className="text-sm leading-relaxed" style={{ color: A.textSub }}>
             We may update this policy from time to time. We will notify you of material changes by
             posting a notice in the app or sending an email to your registered address. The &ldquo;Last
             updated&rdquo; date at the top of this page reflects the most recent revision. Continued use of the
@@ -150,16 +180,16 @@ export default function AncestrePrivacyPage() {
         </Section>
 
         <Section title="13. Contact Us">
-          <p className="text-sm leading-relaxed mb-3" style={{ color: '#aaa' }}>
+          <p className="text-sm leading-relaxed mb-3" style={{ color: A.textSub }}>
             For any privacy-related questions, data requests, or concerns, contact us at:
           </p>
-          <a href="mailto:privacy@pulsesphere.app" className="block text-base font-semibold text-blue-400 hover:underline mb-1">
+          <a href="mailto:privacy@pulsesphere.app" className="block text-base font-semibold mb-1" style={{ color: A.accent }}>
             privacy@pulsesphere.app
           </a>
-          <p className="text-sm" style={{ color: '#aaa' }}>PulseSphere LLC · Everett, Washington, USA</p>
+          <p className="text-sm" style={{ color: A.dim }}>PulseSphere LLC · Everett, Washington, USA</p>
         </Section>
 
-        <p className="text-xs mt-12 text-center" style={{ color: '#555' }}>© 2026 PulseSphere LLC. All rights reserved.</p>
+        <p className="text-xs mt-12 text-center" style={{ color: A.dim }}>© 2026 PulseSphere LLC. All rights reserved.</p>
       </div>
     </div>
   )
@@ -168,7 +198,7 @@ export default function AncestrePrivacyPage() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mt-8">
-      <h2 className="text-base font-bold text-white mb-3">{title}</h2>
+      <h2 className="text-base font-bold mb-3" style={{ color: A.accentLight }}>{title}</h2>
       {children}
     </div>
   )
@@ -176,9 +206,9 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 function Item({ label, children }: { label: string; children: string }) {
   return (
-    <div className="mb-3 pl-3" style={{ borderLeft: '2px solid rgba(74,143,212,0.3)' }}>
-      <span className="text-sm font-bold" style={{ color: '#ddd' }}>{label}: </span>
-      <span className="text-sm leading-relaxed" style={{ color: '#aaa' }}>{children}</span>
+    <div className="mb-3 pl-3" style={{ borderLeft: `2px solid ${A.accent}44` }}>
+      <span className="text-sm font-bold" style={{ color: A.text }}>{label}: </span>
+      <span className="text-sm leading-relaxed" style={{ color: A.textSub }}>{children}</span>
     </div>
   )
 }
