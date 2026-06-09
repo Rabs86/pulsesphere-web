@@ -28,10 +28,8 @@ export default function AncestrePrivacyPage() {
 
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm mb-10 transition-colors"
+          className="inline-flex items-center gap-2 text-sm mb-10 hover:opacity-70 transition-opacity"
           style={{ color: A.dim }}
-          onMouseOver={e => (e.currentTarget.style.color = A.textSub)}
-          onMouseOut={e => (e.currentTarget.style.color = A.dim)}
         >
           ← PulseSphere LLC
         </Link>
