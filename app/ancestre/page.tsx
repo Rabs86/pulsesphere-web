@@ -122,7 +122,7 @@ function Hero() {
         <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 text-sm font-semibold"
           style={{ backgroundColor: ACCENT_DIM, border: `1px solid ${ACCENT_BORDER}`, color: ACCENT }}>
           <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: ACCENT }} />
-          Now available on iOS &amp; Android
+          Coming soon to iOS &amp; Android
         </div>
 
         <h1 className="text-4xl md:text-7xl font-black text-white leading-[1.05] mb-6">
@@ -134,37 +134,33 @@ function Hero() {
           Ancestre captures voice stories from the people you love — with AI-guided interviews, transcription, and a family archive built to last generations.
         </p>
 
-        {/* Store badges */}
+        {/* Store badges — coming soon */}
         <div id="download" className="flex flex-wrap items-center justify-center gap-4 mb-14">
-          <a
-            href="https://apps.apple.com/app/ancestre/id6772851389"
-            target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-3 border rounded-2xl px-5 py-3 hover:opacity-80 transition-opacity"
+          <div
+            className="flex items-center gap-3 border rounded-2xl px-5 py-3 cursor-not-allowed select-none opacity-50"
             style={{ borderColor: ACCENT_BORDER, backgroundColor: ACCENT_DIM }}
           >
             <svg viewBox="0 0 24 24" className="w-7 h-7 fill-white flex-shrink-0">
               <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
             </svg>
             <div className="text-left">
-              <div className="text-white/40 text-[10px] uppercase tracking-wide leading-none">Download on the</div>
+              <div className="text-white/40 text-[10px] uppercase tracking-wide leading-none">Coming soon</div>
               <div className="text-white font-bold text-sm leading-tight mt-0.5">App Store</div>
             </div>
-          </a>
+          </div>
 
-          <a
-            href="https://play.google.com/store/apps/details?id=com.pulsesphere.ancestre"
-            target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-3 border rounded-2xl px-5 py-3 hover:opacity-80 transition-opacity"
+          <div
+            className="flex items-center gap-3 border rounded-2xl px-5 py-3 cursor-not-allowed select-none opacity-50"
             style={{ borderColor: ACCENT_BORDER, backgroundColor: ACCENT_DIM }}
           >
             <svg viewBox="0 0 24 24" className="w-7 h-7 fill-white flex-shrink-0">
               <path d="M3.18 23.76c.3.17.64.24.99.2l12.3-7.1-2.68-2.68-10.61 9.58zM.5 1.26C.19 1.6 0 2.12 0 2.79v18.42c0 .67.19 1.19.51 1.52l.08.08 10.32-10.32v-.24L.58 1.18.5 1.26zM20.49 10.37l-2.9-1.67-3.01 3.01 3.01 3.01 2.92-1.68c.83-.48.83-1.26-.02-1.67zM3.18.24l12.41 7.16-2.68 2.68L2.19.17c.32-.23.69-.1.99.07z"/>
             </svg>
             <div className="text-left">
-              <div className="text-white/40 text-[10px] uppercase tracking-wide leading-none">Get it on</div>
+              <div className="text-white/40 text-[10px] uppercase tracking-wide leading-none">Coming soon</div>
               <div className="text-white font-bold text-sm leading-tight mt-0.5">Google Play</div>
             </div>
-          </a>
+          </div>
         </div>
 
         {/* App icon */}
